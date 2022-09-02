@@ -31,14 +31,14 @@
 
 Скорее всего, вы еще не работали с Redux Toolkit и Typescript.
 Обязательно нужно изучить эти технологии:
-- [Необходимый минимум по Redux Toolkit и Typescript](https://gitlab.com/rozalex.frontend/vet-passport/-/blob/main/USEFUL_MATERIALS.md)
+- [Необходимый минимум по Redux Toolkit и Typescript](https://gitlab.com/Kristina_mentor_fe/vet-clinic/-/blob/main/USEFUL_MATERIALS.md)
 
 ### Как мы работаем
 Мы используем GitLab в качестве системы управления версиями.
 
-[Код проекта](https://gitlab.com/rozalex.frontend/market) 
+[Код проекта](https://gitlab.com/Kristina_mentor_fe/vet-clinic) 
 
-Кроме того, мы используем GitLab и для управления задачами. Для этого у нас есть [доска](https://gitlab.com/rozalex.frontend/vet-passport/-/boards) задач
+Кроме того, мы используем GitLab и для управления задачами. Для этого у нас есть [доска](https://gitlab.com/Kristina_mentor_fe/vet-clinic/-/boards) задач
 
 - Колонка "Open" - общий список задач
 
