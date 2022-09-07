@@ -1,11 +1,16 @@
 import axios from 'axios';
 
 export interface NewUser {
-  email: 'string',
-  firstname: 'string',
-  lastname: 'string',
-  password: 'string',
-  confirmPassword: 'string'
+  email: string,
+  firstname: string,
+  lastname: string,
+  password: string,
+  confirmPassword: string
+}
+
+export interface LoginUser {
+  username: string,
+  password: string
 }
 
 class AuthService {
@@ -24,6 +29,26 @@ class AuthService {
           lastname,
           password,
           confirmPassword,
+        },
+        { headers: { 'Content-type': 'application/json' } },
+      );
+
+      return response.data;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async loginUser (data: LoginUser) {
+    try {
+      const {
+        username, password,
+      } = data;
+      const response = await axios.post(
+        `${this.baseUrl}api/auth`,
+        {
+          username,
+          password,
         },
         { headers: { 'Content-type': 'application/json' } },
       );
