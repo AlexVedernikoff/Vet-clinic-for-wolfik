@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { SignUp } from '../components/forms/sing-up/SignUp';
 
-function App () {
+function App (): JSX.Element {
   return (
     <Router>
       <h2>Header</h2>
