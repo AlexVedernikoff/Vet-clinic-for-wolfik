@@ -16,6 +16,8 @@ export interface LoginUser {
 class AuthService {
   baseUrl = 'http://91.241.64.154:8080/';
 
+  token = '';
+
   async createNewUser (data: NewUser) {
     try {
       const {
@@ -54,6 +56,22 @@ class AuthService {
       );
 
       return response.data;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async getCurrentClient () {
+    try {
+      const res = await axios.get(
+        `${this.baseUrl}api/auth/getCurrent`,
+        {
+          headers: {
+            Authorization: this.token,
+          },
+        },
+      );
+      return res.data;
     } catch (e) {
       console.log(e);
     }
