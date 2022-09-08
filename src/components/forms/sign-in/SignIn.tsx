@@ -1,26 +1,54 @@
-import * as Yup from 'yup';
-import classes from './SignIn.module.scss';
+import { Form, Formik, Field } from 'formik';
+import { signInSchema, initialValues } from './schema';
+import css from './SignIn.module.scss';
 
-const SignIn = (): JSX.Element => {
-  const validationSchema = Yup.object().shape({
-    login: Yup.string()
-      .min(8, 'Логин должен содержать не менее 8 символов')
-      .max(30, 'Логин не должен превышать 30 символов')
-      .required('Поле "Логин" обязательно к заполнению'),
-  });
+interface Values {
+  login: string;
+  password: string;
+}
 
-  const initVal = {
-    login: '',
-    password: '',
-  };
+const onSubmitForm = (values: Values): void => console.log(values);
 
-  return (
-    <section className={classes.wrapper}>
-      <div className={classes.container}>
-        <h2>Sign In</h2>
-      </div>
-    </section>
-  );
-};
+const SignIn = (): JSX.Element => (
+  <section className={css.wrapper}>
+    <div className={css.container}>
+      <h2>Sign In</h2>
+      <Formik
+        onSubmit={onSubmitForm}
+        initialValues={initialValues}
+        validationSchema={signInSchema}
+      >
+        {({ errors, touched, handleSubmit }) => (
+          <Form className="form" onSubmit={handleSubmit}>
+            <label htmlFor="login">Login</label>
+            <Field
+              className={
+                errors.login && touched.login ? css.negative : css.input
+              }
+              id="login"
+              name="login"
+              placeholder="Enter your login"
+            />
+            {errors.login && touched.login && <p>{errors.login}</p>}
+            <label htmlFor="password">Password</label>
+            <Field
+              className={
+                errors.password && touched.password ? css.negative : css.input
+              }
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Enter your password"
+            />
+            {errors.password && touched.password && <p>{errors.password}</p>}
+            <button type="submit" className={css.submit}>
+              Submit
+            </button>
+          </Form>
+        )}
+      </Formik>
+    </div>
+  </section>
+);
 
 export default SignIn;
