@@ -1,40 +1,28 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { Formik, Form, Field } from 'formik';
-import * as yup from 'yup';
 import { Link } from 'react-router-dom';
 import styles from './SignUp.module.scss';
+import { initialValues, validationsSchema } from './schema';
+
+interface Values {
+  firstname: string
+  lastname: string
+  emailaddress: string
+  password: string
+  confirmpassword: string
+}
 
 export const SignUp = (): JSX.Element => {
-  const validationsSchema = yup.object().shape({
-    firstName: yup.string()
-      .min(4, 'Min length First name must be 4 characters')
-      .max(20, 'Max length First name must be 20 characters')
-      .required('First name is required'),
-    lastName: yup.string().min(4, 'Min length Last name must be 4 characters')
-      .max(30, 'Max length Last name must be 30 characters')
-      .required('Last name is required'),
-    emailAdress: yup.string().email('Please enter a valid email adress')
-      .required('Email adress is required'),
-    password: yup.string()
-      .min(6, 'Your password needs to be at least 6 characters')
-      .max(40, 'Your password must be less than 40 characters')
-      .required('Password is required'),
-    confirmPassword: yup.string().oneOf([yup.ref('password')], 'Passwords must match')
-      .required('Confirm password is required'),
-  });
+  const onSubmit = (values: Values) => {
+    console.log(values);
+  };
 
   return (
     <div>
       <Formik
-        initialValues={{
-          firstName: '',
-          lastName: '',
-          emailAdress: '',
-          password: '',
-          confirmPassword: '',
-        }}
+        initialValues={initialValues}
         validateOnBlur
-        onSubmit={(values) => console.log(values)}
+        onSubmit={onSubmit}
         validationSchema={validationsSchema}
       >
         {({
@@ -54,11 +42,11 @@ export const SignUp = (): JSX.Element => {
                     <Field
                       className={styles.field}
                       type="text"
-                      name="firstName"
+                      name="firstname"
                       placeholder="First name"
                     />
-                    {touched.firstName && errors.firstName && (
-                      <p className={styles.validation}>{errors.firstName}</p>
+                    {touched.firstname && errors.firstname && (
+                    <p className={styles.validation}>{errors.firstname}</p>
                     )}
                   </label>
                   <label>
@@ -66,11 +54,11 @@ export const SignUp = (): JSX.Element => {
                     <Field
                       className={styles.field}
                       type="text"
-                      name="lastName"
+                      name="lastname"
                       placeholder="Last name"
                     />
-                    {touched.lastName && errors.lastName && (
-                    <p className={styles.validation}>{errors.lastName}</p>
+                    {touched.lastname && errors.lastname && (
+                    <p className={styles.validation}>{errors.lastname}</p>
                     )}
                   </label>
                   <label>
@@ -78,11 +66,11 @@ export const SignUp = (): JSX.Element => {
                     <Field
                       className={styles.field}
                       type="email"
-                      name="emailAdress"
+                      name="emailaddress"
                       placeholder="Email adress"
                     />
-                    {touched.emailAdress && errors.emailAdress && (
-                    <p className={styles.validation}>{errors.emailAdress}</p>
+                    {touched.emailaddress && errors.emailaddress && (
+                    <p className={styles.validation}>{errors.emailaddress}</p>
                     )}
                   </label>
                   <label>
@@ -103,11 +91,11 @@ export const SignUp = (): JSX.Element => {
                     <Field
                       className={styles.field}
                       type="password"
-                      name="confirmPassword"
+                      name="confirmpassword"
                       placeholder="Confirm password"
                     />
-                    {touched.confirmPassword && errors.confirmPassword && (
-                    <p className={styles.validation}>{errors.confirmPassword}</p>
+                    {touched.confirmpassword && errors.confirmpassword && (
+                    <p className={styles.validation}>{errors.confirmpassword}</p>
                     )}
                   </label>
 
