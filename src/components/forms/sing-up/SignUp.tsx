@@ -2,7 +2,7 @@
 import { Formik, Form, Field } from 'formik';
 import { Link } from 'react-router-dom';
 import styles from './SignUp.module.scss';
-import { initialValues, validationsSchema } from './schema';
+import { initialValues, validationsSchema } from './Validation';
 
 interface Values {
   firstname: string
