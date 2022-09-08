@@ -1,17 +1,5 @@
 import axios from 'axios';
-
-export interface NewUser {
-  email: string,
-  firstname: string,
-  lastname: string,
-  password: string,
-  confirmPassword: string
-}
-
-export interface LoginUser {
-  username: string,
-  password: string
-}
+import { LoginUser, NewUser } from '../../types/AuthDTO';
 
 class AuthService {
   baseUrl = 'http://91.241.64.154:8080/';
@@ -71,6 +59,7 @@ class AuthService {
           },
         },
       );
+
       return res.data;
     } catch (e) {
       console.log(e);
