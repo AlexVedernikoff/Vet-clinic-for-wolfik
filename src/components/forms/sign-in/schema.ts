@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-const passwordRules = /^(?=.*\d)[0-9a-zA-Z]{8,}$/;
+const passwordRules = /[A-z0-9]/;
 
 export const initialValues = { login: '', password: '' };
 
@@ -17,6 +17,6 @@ export const signInSchema = yup.object().shape({
     .max(40, 'Password must have max 40 characters')
     .required('Password is required')
     .matches(passwordRules, {
-      message: 'Password must contain A-Z(a-z) and 0-9',
+      message: 'Password must contain A-Z(a-z)',
     }),
 });
