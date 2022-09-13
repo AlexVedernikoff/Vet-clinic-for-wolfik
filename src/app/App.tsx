@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignIn from '../components/forms/sign-in/SignIn';
 import { SignUp } from '../components/forms/sing-up/SignUp';
+import PetSidebar from '../components/PetSidebar/PetSidebar';
 import { Header } from '../components/header/Header';
 
 function App (): JSX.Element {
@@ -8,7 +9,7 @@ function App (): JSX.Element {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<h2>Main</h2>} />
+        <Route path="/" element={<PetSidebar />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
       </Routes>
