@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import { Button } from 'antd';
 import styles from './Header.module.scss';
 
 export const Header = ():JSX.Element => {
@@ -21,7 +22,12 @@ export const Header = ():JSX.Element => {
       {links.map((el) => (
         <Link to={`${el.path}`} key={uuidv4()} className={styles.link}>{el.label}</Link>
       ))}
+      <Link to="/sign-in">
+        <Button className={styles.signin}>sign-in</Button>
+      </Link>
+      <Link to="/signUp">
+        <Button className={styles.registration}>registration</Button>
+      </Link>
     </div>
-
   );
 };
