@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { Formik, Form, Field } from 'formik';
 import { Link } from 'react-router-dom';
-import styles from './SignUp.module.scss';
-import css from '../sign-in/SignIn.module.scss';
+import css from '../sign-in/forms.module.scss';
 import { initialValues, validationsSchema } from './Validation';
 
 interface Values {
@@ -45,7 +44,7 @@ export const SignUp = (): JSX.Element => {
                 placeholder="First name"
               />
               {touched.firstname && errors.firstname && (
-                <p className={styles.validation}>{errors.firstname}</p>
+                <p className={css.validation}>{errors.firstname}</p>
               )}
               <label htmlFor="lastname">Last name</label>
               <Field
@@ -56,7 +55,7 @@ export const SignUp = (): JSX.Element => {
                 placeholder="Last name"
               />
               {touched.lastname && errors.lastname && (
-                <p className={styles.validation}>{errors.lastname}</p>
+                <p className={css.validation}>{errors.lastname}</p>
               )}
               <label htmlFor="emailaddress">Email adress</label>
               <Field
@@ -67,7 +66,7 @@ export const SignUp = (): JSX.Element => {
                 placeholder="Email adress"
               />
               {touched.emailaddress && errors.emailaddress && (
-                <p className={styles.validation}>{errors.emailaddress}</p>
+                <p className={css.validation}>{errors.emailaddress}</p>
               )}
               <label htmlFor="password">Password</label>
               <Field
@@ -78,7 +77,7 @@ export const SignUp = (): JSX.Element => {
                 placeholder="Password"
               />
               {touched.password && errors.password && (
-                <p className={styles.validation}>{errors.password}</p>
+                <p className={css.validation}>{errors.password}</p>
               )}
               <label htmlFor="confirmpassword">Confirm password</label>
               <Field
@@ -89,12 +88,12 @@ export const SignUp = (): JSX.Element => {
                 placeholder="Confirm password"
               />
               {touched.confirmpassword && errors.confirmpassword && (
-                <p className={styles.validation}>{errors.confirmpassword}</p>
+                <p className={css.validation}>{errors.confirmpassword}</p>
               )}
               <hr />
-              <div className={styles.data}>
-                <input type="checkbox" defaultChecked className={styles.checkbox} />
-                <span className={styles.description}>I agree to the processing of my personal information</span>
+              <div className={css.data}>
+                <input type="checkbox" defaultChecked className={css.checkbox} />
+                <span className={css.description}>I agree to the processing of my personal information</span>
               </div>
               <button
                 className={css.submit}
@@ -103,7 +102,7 @@ export const SignUp = (): JSX.Element => {
               >
                 Create
               </button>
-              <div className={styles.signin}>
+              <div className={css.signin}>
                 Don’t have an account?&nbsp;
                 <Link to="/signIn">Sign In.</Link>
               </div>
