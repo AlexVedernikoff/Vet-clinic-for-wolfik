@@ -8,9 +8,9 @@ $backgrountWhite: #fff;
   align-items: center;
   @media (max-width: 1024px) {
     height: 500px;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     justify-content: end;
-    justify-items: end;
     padding-right: 0;
   }
   .link {
