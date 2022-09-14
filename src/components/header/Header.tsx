@@ -25,7 +25,7 @@ export const Header = ():JSX.Element => {
       <Link to="/sign-in">
         <Button className={styles.signin}>sign-in</Button>
       </Link>
-      <Link to="/signUp">
+      <Link to="/sign-up">
         <Button className={styles.registration}>registration</Button>
       </Link>
     </div>

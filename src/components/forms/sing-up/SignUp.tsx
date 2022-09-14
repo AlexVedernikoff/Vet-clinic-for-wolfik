@@ -113,7 +113,7 @@ export const SignUp = (): JSX.Element => {
                       Create
                     </button>
                     <div className={styles.signin}>
-                      Don’t have an account?&nbsp;
+                      You have an account?&nbsp;
                       <Link to="/sign-in">Sign In.</Link>
                     </div>
                   </div>
