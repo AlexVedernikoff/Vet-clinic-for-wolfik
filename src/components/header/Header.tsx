@@ -1,11 +1,12 @@
+import { Layout } from 'antd';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './Header.module.scss';
 
-export const Header = ():JSX.Element => {
-  type Header = { label: string, path: string }[];
+export const Header = (): JSX.Element => {
+  type Header = { label: string; path: string }[];
 
-  const links:Header = [
+  const links: Header = [
     { label: 'Список докторов', path: '/список докторов' },
     { label: 'Список процедур', path: '/список процедур' },
     { label: 'Список того', path: '/список того' },
@@ -17,11 +18,12 @@ export const Header = ():JSX.Element => {
   ];
 
   return (
-    <div className={styles.wrapper}>
+    <Layout.Header className={styles.wrapper}>
       {links.map((el) => (
-        <Link to={`${el.path}`} key={uuidv4()} className={styles.link}>{el.label}</Link>
+        <Link to={`${el.path}`} key={uuidv4()} className={styles.link}>
+          {el.label}
+        </Link>
       ))}
-    </div>
-
+    </Layout.Header>
   );
 };

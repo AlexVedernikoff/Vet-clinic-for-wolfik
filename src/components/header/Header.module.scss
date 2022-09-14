@@ -1,13 +1,20 @@
 $colorGrey: #3f3f3f;
+$backgrountWhite: #fff;
 .wrapper {
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .link {
-        padding-right: 20px;
-        text-decoration: none;
-        color: $colorGrey
-    }
+  background-color: $backgrountWhite;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 1024px) {
+    height: 500px;
+    display: grid;
+    justify-content: end;
+    justify-items: end;
+  }
+  .link {
+    padding-right: 20px;
+    text-decoration: none;
+    color: $colorGrey;
+  }
 }
