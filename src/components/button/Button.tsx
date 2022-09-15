@@ -9,7 +9,7 @@ export interface ButtonProps {
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   form?: 'submit';
   disabled?: boolean;
-  style?: { [x: string]: string };
+  style?: React.CSSProperties;
 }
 
 const ButtonCustom = ({
