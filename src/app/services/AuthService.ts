@@ -1,9 +1,9 @@
 /* eslint-disable consistent-return */
 import axios from 'axios';
 import { LoginUser, NewUser } from '../../types/AuthDTO';
+import { axiosInstance } from './interceptor';
 
 const baseUrl = 'http://91.241.64.154:8080/';
-const token = '';
 
 export const createNewUser = async (data: NewUser) => {
   try {
@@ -49,11 +49,9 @@ export const loginUser = async (data: LoginUser) => {
 
 export const getCurrentClient = async () => {
   try {
-    const res = await axios.get(`${baseUrl}api/auth/getCurrent`, {
-      headers: {
-        Authorization: token,
-      },
-    });
+    const res = await axiosInstance.get(
+      'api/auth/getCurrent',
+    );
 
     return res.data;
   } catch (e) {
