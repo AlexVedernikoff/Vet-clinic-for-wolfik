@@ -3,15 +3,24 @@ import SignIn from '../components/forms/sign-in/SignIn';
 import { SignUp } from '../components/forms/sing-up/SignUp';
 import PetSidebar from '../components/PetSidebar/PetSidebar';
 import { Header } from '../components/header/Header';
+import AdminPage from '../pages/admin-page';
+import ClientPage from '../pages/client-page';
+import DoctorPage from '../pages/doctor-page';
+import ManagerPage from '../pages/manager-page';
+import MainPage from '../pages/main-page';
 
 function App (): JSX.Element {
   return (
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<PetSidebar />} />
+        <Route path="/" element={<MainPage />} />
+        <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/signUp" element={<SignUp />} />
+        <Route path="/adminPage" element={<AdminPage />} />
+        <Route path="/clientPage" element={<ClientPage />} />
+        <Route path="/managerPage" element={<ManagerPage />} />
+        <Route path="/doctorPage" element={<DoctorPage />} />
       </Routes>
       <h2>Footer</h2>
     </Router>
