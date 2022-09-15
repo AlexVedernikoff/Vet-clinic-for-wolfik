@@ -1,7 +1,7 @@
 import { Form, Formik, Field } from 'formik';
 import { signInSchema, initialValues } from './schema';
 import { LoginUser } from '../../../types/AuthDTO';
-import { loginUser } from '../../../app/services/AuthService';
+import { AuthService } from '../../../app/services/AuthService';
 import css from './SignIn.module.scss';
 
 const SignIn = (): JSX.Element => (
@@ -9,7 +9,7 @@ const SignIn = (): JSX.Element => (
     <div className={css.container}>
       <h2>Sign In</h2>
       <Formik
-        onSubmit={(values: LoginUser) => loginUser(values)}
+        onSubmit={(values: LoginUser) => AuthService.loginUser(values)}
         initialValues={initialValues}
         validationSchema={signInSchema}
       >
