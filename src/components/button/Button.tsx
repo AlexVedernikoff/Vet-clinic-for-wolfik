@@ -6,10 +6,9 @@ export interface ButtonProps {
   label?: string;
   shape?: 'circle' | 'round';
   icon?: JSX.Element;
-  marginRight?: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  props?: { [x: string]: any };
-  style?: { [x: string]: any };
+  props?: { [x: string]: string };
+  style?: { [x: string]: string };
 }
 
 const ButtonCustom = ({
