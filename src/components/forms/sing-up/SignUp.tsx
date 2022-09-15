@@ -40,7 +40,7 @@ export const SignUp = (): JSX.Element => {
                   <label>
                     <div className={styles.description}>First name</div>
                     <Field
-                      className={styles.field}
+                      className={errors.firstname && touched.firstname ? styles.invalid : styles.field}
                       type="text"
                       name="firstname"
                       placeholder="First name"
@@ -52,7 +52,7 @@ export const SignUp = (): JSX.Element => {
                   <label>
                     <div className={styles.description}>Last name</div>
                     <Field
-                      className={styles.field}
+                      className={errors.lastname && touched.lastname ? styles.invalid : styles.field}
                       type="text"
                       name="lastname"
                       placeholder="Last name"
@@ -64,7 +64,7 @@ export const SignUp = (): JSX.Element => {
                   <label>
                     <div className={styles.description}>Email adress</div>
                     <Field
-                      className={styles.field}
+                      className={errors.emailaddress && touched.emailaddress ? styles.invalid : styles.field}
                       type="email"
                       name="emailaddress"
                       placeholder="Email adress"
@@ -76,7 +76,7 @@ export const SignUp = (): JSX.Element => {
                   <label>
                     <div className={styles.description}>Password</div>
                     <Field
-                      className={styles.field}
+                      className={errors.password && touched.password ? styles.invalid : styles.field}
                       type="password"
                       name="password"
                       placeholder="Password"
@@ -89,7 +89,7 @@ export const SignUp = (): JSX.Element => {
                   <label>
                     <div className={styles.description}>Confirm password</div>
                     <Field
-                      className={styles.field}
+                      className={errors.confirmpassword && touched.confirmpassword ? styles.invalid : styles.field}
                       type="password"
                       name="confirmpassword"
                       placeholder="Confirm password"
@@ -113,8 +113,8 @@ export const SignUp = (): JSX.Element => {
                       Create
                     </button>
                     <div className={styles.signin}>
-                      Don’t have an account?&nbsp;
-                      <Link to="/signIn">Sign In.</Link>
+                      You have an account?&nbsp;
+                      <Link to="/sign-in">Sign In.</Link>
                     </div>
                   </div>
                 </div>
