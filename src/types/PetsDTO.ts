@@ -1,3 +1,19 @@
+enum Pets {
+  CAT = "CAT",
+  DOG = "DOG"
+}
+
+enum PetsGender {
+  MALE = 'MALE',
+  FEMALE = 'FEMALE',
+}
+
+enum PetsSize {
+  SMALL = 'SMALL',
+  BIG = 'BIG',
+  MEDIUM = 'MEDIUM',
+}
+
 export interface PetContact {
   ownerName: string,
   address: string,
@@ -11,7 +27,7 @@ export interface Pet {
   avatar: string,
   birthDay: string,
   notificationCount: number,
-  petType: 'CAT' | 'DOG'
+  petType: Pets
 }
 
 export interface CurrentClient {
@@ -26,10 +42,10 @@ export interface NewPet {
   name: string,
   petType: string,
   birthDay: string,
-  gender: 'MALE' | 'FEMALE',
+  gender: PetsGender,
   breed: string,
   color: string,
-  size: 'SMALL' | 'BIG' | 'MEDIUM',
+  size: PetsSize,
   weight: number,
   description: string,
   avatar: string,
@@ -38,12 +54,12 @@ export interface NewPet {
 
 export interface NewPetPesponse {
   name: string,
-  petType: 'CAT' | 'DOG',
+  petType: Pets,
   birthDay: string,
-  gender: 'MALE' | 'FEMALE',
+  gender: PetsGender,
   breed: string,
   color: string,
-  size: 'SMALL' | 'BIG' | 'MEDIUM',
+  size: PetsSize,
   weight: number,
   description: string
 }
