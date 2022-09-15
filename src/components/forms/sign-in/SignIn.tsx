@@ -1,20 +1,15 @@
 import { Form, Formik, Field } from 'formik';
 import { signInSchema, initialValues } from './schema';
+import { LoginUser } from '../../../types/AuthDTO';
+import { loginUser } from '../../../app/services/AuthService';
 import css from './SignIn.module.scss';
-
-interface Values {
-  login: string;
-  password: string;
-}
-
-const onSubmitForm = (values: Values): void => console.log(values);
 
 const SignIn = (): JSX.Element => (
   <section className={css.wrapper}>
     <div className={css.container}>
       <h2>Sign In</h2>
       <Formik
-        onSubmit={onSubmitForm}
+        onSubmit={(values: LoginUser) => loginUser(values)}
         initialValues={initialValues}
         validationSchema={signInSchema}
       >
@@ -23,13 +18,13 @@ const SignIn = (): JSX.Element => (
             <label htmlFor="login">Login</label>
             <Field
               className={
-                errors.login && touched.login ? css.negative : css.input
+                errors.username && touched.username ? css.negative : css.input
               }
-              id="login"
-              name="login"
+              id="username"
+              name="username"
               placeholder="Enter your login"
             />
-            {errors.login && touched.login && <p>{errors.login}</p>}
+            {errors.username && touched.username && <p>{errors.username}</p>}
             <label htmlFor="password">Password</label>
             <Field
               className={

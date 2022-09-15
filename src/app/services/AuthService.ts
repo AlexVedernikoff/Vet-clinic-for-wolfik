@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import axios from 'axios';
 import { LoginUser, NewUser } from '../../types/AuthDTO';
 import { axiosInstance } from './interceptor';
@@ -6,9 +7,7 @@ const baseUrl = 'http://91.241.64.154:8080/';
 
 export const createNewUser = async (data: NewUser) => {
   try {
-    const {
-      email, firstname, lastname, password, confirmPassword,
-    } = data;
+    const { email, firstname, lastname, password, confirmPassword } = data;
     const response = await axios.post(
       `${baseUrl}api/registration`,
       {
@@ -29,9 +28,7 @@ export const createNewUser = async (data: NewUser) => {
 
 export const loginUser = async (data: LoginUser) => {
   try {
-    const {
-      username, password,
-    } = data;
+    const { username, password } = data;
     const response = await axios.post(
       `${baseUrl}api/auth`,
       {
@@ -40,6 +37,9 @@ export const loginUser = async (data: LoginUser) => {
       },
       { headers: { 'Content-type': 'application/json' } },
     );
+
+    const { jwtToken, role } = response.data;
+    localStorage.setItem('AUTH_TOKEN', jwtToken);
 
     return response.data;
   } catch (e) {
