@@ -55,19 +55,19 @@ $colorDeepGrey: #8c8c8c;
         height: 16px;
         margin-right: 8px;
       }
-      .create {
-        width: 100%;
-        background-color: $colorBlue;
-        font-size: 16px;
-        color: $colorWhite;
-        border: none;
-        border-radius: 4px;
-        padding: 8px 0;
-        margin-bottom: 8px;
-        &:hover {
-            cursor: pointer;
-          }
-      }
+      // .create {
+      //   width: 100%;
+      //   background-color: $colorBlue;
+      //   font-size: 16px;
+      //   color: $colorWhite;
+      //   border: none;
+      //   border-radius: 4px;
+      //   padding: 8px 0;
+      //   margin-bottom: 8px;
+      //   &:hover {
+      //       cursor: pointer;
+      //     }
+      // }
       .signin {
         color: $colorDeepGrey;
       }

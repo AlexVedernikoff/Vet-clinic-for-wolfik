@@ -1,34 +1,37 @@
 import { Button } from 'antd';
 
 export interface ButtonProps {
-  type?: 'default' | 'primary';
+  typeButton?: 'default' | 'primary';
   size?: 'small' | 'large';
   label?: string;
   shape?: 'circle' | 'round';
   icon?: JSX.Element;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  props?: { [x: string]: string };
+  form?: 'submit';
+  disabled?: boolean;
   style?: { [x: string]: string };
 }
 
 const ButtonCustom = ({
-  type,
+  typeButton,
   size,
   label,
   onClick,
   icon,
   shape,
+  form,
+  disabled,
   style,
-  props,
 }: ButtonProps): JSX.Element => (
   <Button
     style={style}
     shape={shape}
-    type={type}
+    type={typeButton}
     size={size}
     onClick={onClick}
+    htmlType={form}
+    disabled={disabled}
     icon={icon}
-    {...props}
   >
     {label}
   </Button>

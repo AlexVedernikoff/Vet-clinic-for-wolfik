@@ -26,11 +26,11 @@ const createPanel = (id: number, name: string): JSX.Element => (
   <Panel header={name} key={id} className={css.panel}>
     <ButtonCustom
       label="Редактировать"
-      type="primary"
+      typeButton="primary"
       icon={<EditOutlined />}
       style={{ marginRight: '5px' }}
     />
-    <ButtonCustom label="Удалить" type="primary" icon={<DeleteOutlined />} />
+    <ButtonCustom label="Удалить" typeButton="primary" icon={<DeleteOutlined />} />
   </Panel>
 );
 
@@ -39,7 +39,7 @@ const PetSidebar = (): JSX.Element => (
   <aside className={css.sidebar}>
     <div className={css.header}>
       <span className={css.label}>Ваши питомцы</span>
-      <ButtonCustom shape="circle" type="primary" icon={<PlusOutlined />} />
+      <ButtonCustom shape="circle" typeButton="primary" icon={<PlusOutlined />} />
     </div>
     <Collapse accordion expandIconPosition="end">
       {petsData.map((pet: Pets) => createPanel(pet.id, pet.name))}

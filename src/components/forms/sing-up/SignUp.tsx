@@ -1,15 +1,16 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { Formik, Form, Field } from 'formik';
 import { Link } from 'react-router-dom';
+import ButtonCustom from '../../button/Button';
 import styles from './SignUp.module.scss';
 import { initialValues, validationsSchema } from './Validation';
 
 interface Values {
-  firstname: string
-  lastname: string
-  emailaddress: string
-  password: string
-  confirmpassword: string
+  firstname: string;
+  lastname: string;
+  emailaddress: string;
+  password: string;
+  confirmpassword: string;
 }
 
 export const SignUp = (): JSX.Element => {
@@ -25,13 +26,7 @@ export const SignUp = (): JSX.Element => {
         onSubmit={onSubmit}
         validationSchema={validationsSchema}
       >
-        {({
-          errors,
-          touched,
-          isValid,
-          handleSubmit,
-          dirty,
-        }) => (
+        {({ errors, touched, isValid, handleSubmit, dirty }) => (
           <Form onSubmit={handleSubmit}>
             <div className={styles.wrapper}>
               <div className={styles.container}>
@@ -46,7 +41,7 @@ export const SignUp = (): JSX.Element => {
                       placeholder="First name"
                     />
                     {touched.firstname && errors.firstname && (
-                    <p className={styles.validation}>{errors.firstname}</p>
+                      <p className={styles.validation}>{errors.firstname}</p>
                     )}
                   </label>
                   <label>
@@ -58,7 +53,7 @@ export const SignUp = (): JSX.Element => {
                       placeholder="Last name"
                     />
                     {touched.lastname && errors.lastname && (
-                    <p className={styles.validation}>{errors.lastname}</p>
+                      <p className={styles.validation}>{errors.lastname}</p>
                     )}
                   </label>
                   <label>
@@ -70,7 +65,7 @@ export const SignUp = (): JSX.Element => {
                       placeholder="Email adress"
                     />
                     {touched.emailaddress && errors.emailaddress && (
-                    <p className={styles.validation}>{errors.emailaddress}</p>
+                      <p className={styles.validation}>{errors.emailaddress}</p>
                     )}
                   </label>
                   <label>
@@ -82,7 +77,7 @@ export const SignUp = (): JSX.Element => {
                       placeholder="Password"
                     />
                     {touched.password && errors.password && (
-                    <p className={styles.validation}>{errors.password}</p>
+                      <p className={styles.validation}>{errors.password}</p>
                     )}
                   </label>
 
@@ -95,23 +90,36 @@ export const SignUp = (): JSX.Element => {
                       placeholder="Confirm password"
                     />
                     {touched.confirmpassword && errors.confirmpassword && (
-                    <p className={styles.validation}>{errors.confirmpassword}</p>
+                      <p className={styles.validation}>
+                        {errors.confirmpassword}
+                      </p>
                     )}
                   </label>
 
                   <hr />
                   <div className={styles.data}>
-                    <input type="checkbox" defaultChecked className={styles.checkbox} />
-                    <span className={styles.description}>I agree to the processing of my personal information</span>
+                    <input
+                      type="checkbox"
+                      defaultChecked
+                      className={styles.checkbox}
+                    />
+                    <span className={styles.description}>
+                      I agree to the processing of my personal information
+                    </span>
                   </div>
                   <div>
-                    <button
-                      className={styles.create}
-                      type="submit"
+                    <ButtonCustom
+                      style={{
+                        borderRadius: '4px',
+                        margin: '0 0 8px 0',
+                        width: '100%',
+                      }}
+                      size="large"
+                      label="Create"
+                      typeButton="primary"
+                      form="submit"
                       disabled={!isValid && !dirty}
-                    >
-                      Create
-                    </button>
+                    />
                     <div className={styles.signin}>
                       Don’t have an account?&nbsp;
                       <Link to="/signIn">Sign In.</Link>
