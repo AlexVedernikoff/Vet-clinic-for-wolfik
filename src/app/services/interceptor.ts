@@ -12,7 +12,7 @@ export const axiosInstance: AxiosInstance = axios.create({
 axiosInstance.interceptors.request.use((config: AxiosRequestConfig): AxiosRequestConfig => {
   const { headers } = config;
   if (headers) {
-    headers.Authorization = `Bearer ${localStorage.getItem('AUTH_TOKEN')}`;
+    headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
   }
 
   return config;
