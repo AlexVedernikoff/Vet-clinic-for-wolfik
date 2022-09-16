@@ -30,9 +30,6 @@ const createPanel = (id: number, name: string): JSX.Element => (
       icon={<EditOutlined />}
       style={{ marginRight: '5px' }}
     />
-    <Button shape="circle" type="primary" icon={<DeleteOutlined />}>
-      рпррр
-    </Button>
     <ButtonCustom
       label="Удалить"
       appearance="primary"
