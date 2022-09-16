@@ -8,8 +8,9 @@ import { AuthService } from '../../../app/services/AuthService';
 import { NewUser } from '../../../types/AuthDTO';
 
 export const SignUp = (): JSX.Element => {
-  const onSubmit = (values: NewUser) => {
-    AuthService.createNewUser(values);
+  const onSubmit = (values: NewUser & { agree: boolean }) => {
+    if (!values.agree) alert('You have not consented to the processing of personal data');
+    else AuthService.createNewUser(values);
   };
 
   return (
@@ -90,14 +91,8 @@ export const SignUp = (): JSX.Element => {
 
                   <hr />
                   <div className={styles.data}>
-                    <input
-                      type="checkbox"
-                      defaultChecked
-                      className={styles.checkbox}
-                    />
-                    <span className={styles.description}>
-                      I agree to the processing of my personal information
-                    </span>
+                    <Field type="checkbox" className={styles.checkbox} name="agree" />
+                    <span className={styles.description}>I agree to the processing of my personal information</span>
                   </div>
                   <div>
                     <ButtonCustom
