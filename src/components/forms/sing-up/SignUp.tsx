@@ -109,15 +109,9 @@ export const SignUp = (): JSX.Element => {
                   </div>
                   <div>
                     <ButtonCustom
-                      style={{
-                        borderRadius: '4px',
-                        margin: '0 0 8px 0',
-                        width: '100%',
-                      }}
-                      size="large"
                       label="Create"
-                      typeButton="primary"
-                      form="submit"
+                      style={{ marginTop: '12px', width: '100%' }}
+                      type="submit"
                       disabled={!isValid && !dirty}
                     />
                     <div className={styles.signin}>

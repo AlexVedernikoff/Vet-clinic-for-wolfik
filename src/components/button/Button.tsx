@@ -1,40 +1,36 @@
-import { Button } from 'antd';
+import style from './Button.module.scss';
+/* eslint-disable react/button-has-type */
+type ButtonType = Pick<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'>;
 
-export interface ButtonProps {
-  typeButton?: 'default' | 'primary';
-  size?: 'small' | 'large';
-  label?: string;
-  shape?: 'circle' | 'round';
+type ButtonProps = {
+  appearance?: 'primary' | 'default';
+  // size?: 'small' | 'large';
+  label?: string | JSX.Element | null;
+  shape?: 'circle' | 'def';
   icon?: JSX.Element;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  form?: 'submit';
   disabled?: boolean;
   style?: React.CSSProperties;
-}
+} & ButtonType;
 
 const ButtonCustom = ({
-  typeButton,
-  size,
+  appearance = 'primary',
   label,
-  onClick,
+  type = 'button',
+  shape = 'def',
   icon,
-  shape,
-  form,
-  disabled,
-  style,
+  ...other
 }: ButtonProps): JSX.Element => (
-  <Button
-    style={style}
-    shape={shape}
-    type={typeButton}
-    size={size}
-    onClick={onClick}
-    htmlType={form}
-    disabled={disabled}
-    icon={icon}
+  <button
+    className={`${style.style_button} ${style[appearance]} ${
+      style[shape] ?? ''
+    }`}
+    type={type}
+    {...other}
   >
-    {label}
-  </Button>
+    {icon}
+    <span>{label}</span>
+  </button>
 );
 
 export default ButtonCustom;

@@ -43,11 +43,9 @@ const SignIn = (): JSX.Element => (
             />
             {errors.password && touched.password && <p>{errors.password}</p>}
             <ButtonCustom
-              style={{ borderRadius: '4px', margin: '21px 0 8px 0' }}
-              size="large"
+              style={{ marginTop: '12px' }}
               label="Submit"
-              typeButton="primary"
-              form="submit"
+              type="submit"
             />
           </Form>
         )}
