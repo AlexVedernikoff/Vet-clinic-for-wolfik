@@ -1,4 +1,4 @@
-import { Button, Collapse } from 'antd';
+import { Collapse } from 'antd';
 import { EditOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import css from './PetSidebar.module.scss';
 import ButtonCustom from '../button/Button';

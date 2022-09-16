@@ -19,6 +19,7 @@ const ButtonCustom = ({
   type = 'button',
   shape = 'def',
   icon,
+  disabled,
   ...other
 }: ButtonProps): JSX.Element => (
   <button
@@ -26,6 +27,7 @@ const ButtonCustom = ({
       style[shape] ?? ''
     }`}
     type={type}
+    disabled={disabled}
     {...other}
   >
     {icon}

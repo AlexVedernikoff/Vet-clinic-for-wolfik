@@ -112,7 +112,7 @@ export const SignUp = (): JSX.Element => {
                       label="Create"
                       style={{ marginTop: '12px', width: '100%' }}
                       type="submit"
-                      disabled={!isValid && !dirty}
+                      disabled={!(isValid && dirty)}
                     />
                     <div className={styles.signin}>
                       Don’t have an account?&nbsp;
