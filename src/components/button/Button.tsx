@@ -1,6 +1,12 @@
+import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 import style from './Button.module.scss';
 /* eslint-disable react/button-has-type */
 type ButtonType = Pick<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'>;
+
+type ButtonAllProps = DetailedHTMLProps<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+>;
 
 type ButtonProps = {
   appearance?: 'primary' | 'default';
@@ -8,10 +14,11 @@ type ButtonProps = {
   label?: string | JSX.Element | null;
   shape?: 'circle' | 'def';
   icon?: JSX.Element;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  // onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   disabled?: boolean;
   style?: React.CSSProperties;
-} & ButtonType;
+} & ButtonType &
+  ButtonAllProps;
 
 const ButtonCustom = ({
   appearance = 'primary',
