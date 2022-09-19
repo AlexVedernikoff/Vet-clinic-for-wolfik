@@ -1,31 +1,119 @@
 $main-color: #5496d4;
-$border-color: #d9d9d9;
+$text-color: #FEFEFE;
+$pet-name: #3A4045;
 
-.header {
-  width: 300px;
-  height: 46px;
-  background: $main-color;
-  border: 1px solid $border-color;
-  border-radius: 2px;
+.petsidebar {
+  box-shadow: 0px 0px 20px rgba(18, 38, 63, 0.05);
   display: flex;
-  padding: 5px;
-  .label {
-    cursor: default;
-    margin: 0 auto;
-    color: #fff;
-    align-self: center;
-  }
-  .addpet {
-    align-self: center;
-  }
-}
-
-.sidebar {
+  flex-direction: column;
   width: 300px;
-  height: 90vh;
-  // border: 1px solid #ccc;
-}
-
-.panel {
-  text-align: center;
+  height: 100vh;
+  .header {
+    cursor: default;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    background-color: $main-color;
+    .title {
+      color: $text-color;
+    }
+    .addpet {
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+      background: #fff;
+      border: 1.2px solid #2E75B7;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      transform: translateX(130px);
+      span {
+        color: #000;
+        font-weight: 400;
+        font-size: 20px;
+      }
+    }
+  }
+  .petlist {
+    padding: 10px;
+    list-style: none;
+    .pet-checked {
+      background: rgba(84, 150, 212, 0.2);
+      .pet-avatar {
+        border: 1.5px solid #2E75B7;
+      }
+    }
+    .pet::after {
+      content: '';
+      width: 230px;
+      height: 1px;
+      background-color: #f5f5f5;
+      border-radius: 1px;
+      position: absolute;
+      transform: translate(40px, 20px);
+    }
+    .pet-checked,
+    .pet {
+      position: relative;
+      transition: .3s;
+      cursor: pointer;
+      height: 45px;
+      padding: 0 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 3px;
+      .pet-avatar {
+        width: 30px;
+        height: 30px;
+        background: #D9D9D9;
+        border-radius: 50%;
+        span {
+          visibility: hidden;
+        }
+      }
+      .pet-name {
+        color: $pet-name;
+        font-size: 12px;
+        line-height: 15px;
+      }
+      .open,
+      .closed {
+        color: #3A4045;
+        transition: rotate .2s;
+      }
+      .open {
+        rotate: 90deg;
+        transition: rotate .2s;
+      }
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      .edit,
+      .delete {
+        border: none;
+        text-shadow: none;
+        box-shadow: none;
+        font-size: 11px;
+        line-height: 13px;
+        width: 125px;
+        border-radius: 3px;
+        &:hover {
+          filter: opacity(85%);
+        }
+      }
+      .edit {
+        background-color: $main-color;
+      }
+      .delete {
+        background-color: #E8454D;
+      }
+    }
+  }
 }

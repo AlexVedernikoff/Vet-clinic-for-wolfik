@@ -1,3 +1,5 @@
-const MainPage = (): JSX.Element => <h1>main-page</h1>;
+import PetSidebar from '../components/PetSidebar/PetSidebar';
+
+const MainPage = (): JSX.Element => <PetSidebar />;
 
 export default MainPage;
