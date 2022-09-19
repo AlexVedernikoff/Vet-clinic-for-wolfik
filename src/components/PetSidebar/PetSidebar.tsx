@@ -1,4 +1,9 @@
-import { DeleteFilled, EditFilled, RightOutlined } from '@ant-design/icons';
+import {
+  DeleteFilled,
+  EditFilled,
+  MenuUnfoldOutlined,
+  RightOutlined,
+} from '@ant-design/icons';
 import { useState } from 'react';
 import { Button } from 'antd';
 import css from './PetSidebar.module.scss';
@@ -6,7 +11,7 @@ import css from './PetSidebar.module.scss';
 interface Pets {
   id: number;
   name: string;
-  checked?: boolean;
+  checked: boolean;
 }
 
 const petListItem = (pet: Pets, cb: (id: number) => void): JSX.Element => (
@@ -53,7 +58,11 @@ const PetSidebar = (): JSX.Element => {
   return (
     <aside className={css.petsidebar}>
       <header className={css.header}>
-        <span className={css.title}>Ваши питомцы</span>
+        {window.screen.width > 768 ? (
+          <span className={css.title}>Ваши питомцы</span>
+        ) : (
+          <MenuUnfoldOutlined className={css.title} onClick={() => {}} />
+        )}
         <button type="button" className={css.addpet}>
           <span>+</span>
         </button>

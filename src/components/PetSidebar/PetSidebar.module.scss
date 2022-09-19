@@ -7,6 +7,9 @@ $pet-name: #3A4045;
   display: flex;
   flex-direction: column;
   width: 300px;
+  @media (max-width: 768px) {
+    width: 70px;
+  }
   height: 100vh;
   .header {
     cursor: default;
@@ -18,8 +21,14 @@ $pet-name: #3A4045;
     background-color: $main-color;
     .title {
       color: $text-color;
+      @media (max-width: 768px) {
+        font-size: 24px;
+      }
     }
     .addpet {
+      @media (max-width: 768px) {
+        display: none;
+      }
       cursor: pointer;
       width: 18px;
       height: 18px;
@@ -40,6 +49,9 @@ $pet-name: #3A4045;
   }
   .petlist {
     padding: 10px;
+    @media (max-width: 768px) {
+      padding: 10px 0;
+    }
     list-style: none;
     .pet-checked {
       background: rgba(84, 150, 212, 0.2);
@@ -47,17 +59,22 @@ $pet-name: #3A4045;
         border: 1.5px solid #2E75B7;
       }
     }
-    .pet::after {
-      content: '';
-      width: 230px;
-      height: 1px;
-      background-color: #f5f5f5;
-      border-radius: 1px;
-      position: absolute;
-      transform: translate(40px, 20px);
+    @media (min-width: 769px) {
+      .pet::after {
+        content: '';
+        width: 230px;
+        height: 1px;
+        background-color: #f5f5f5;
+        border-radius: 1px;
+        position: absolute;
+        transform: translate(40px, 20px);
+      }
     }
     .pet-checked,
     .pet {
+      @media (max-width: 768px) {
+        padding: 0;
+      }
       position: relative;
       transition: .3s;
       cursor: pointer;
@@ -68,6 +85,9 @@ $pet-name: #3A4045;
       align-items: center;
       border-radius: 3px;
       .pet-avatar {
+        @media (max-width: 768px) {
+          margin: 0 auto;
+        }
         width: 30px;
         height: 30px;
         background: #D9D9D9;
@@ -77,12 +97,18 @@ $pet-name: #3A4045;
         }
       }
       .pet-name {
+        @media (max-width: 768px) {
+          display: none;
+        }
         color: $pet-name;
         font-size: 12px;
         line-height: 15px;
       }
       .open,
       .closed {
+        @media (max-width: 768px) {
+          display: none;
+        }
         color: #3A4045;
         transition: rotate .2s;
       }
@@ -92,6 +118,10 @@ $pet-name: #3A4045;
       }
     }
     .buttons {
+      @media (max-width: 768px) {
+        display: none;
+        
+      }
       display: flex;
       justify-content: space-between;
       padding: 10px;
