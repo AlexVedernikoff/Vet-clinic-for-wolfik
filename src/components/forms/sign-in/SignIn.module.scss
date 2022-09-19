@@ -64,21 +64,21 @@ $mainColor: #5496d4;
         border: 1px solid $colorRed;
       }
     }
-    .submit {
-      cursor: pointer;
-      border: none;
-      background: $mainColor;
-      border-radius: 4px;
-      padding: 10px 0 8px 0;
-      color: #fff;
-      font-size: 16px;
-      line-height: 24px;
-      margin: 21px 0 8px 0;
-      transition: .2s;
-      &:hover {
-        filter: opacity(90%);
-      }
-    }
+    // .submit {
+    //   cursor: pointer;
+    //   border: none;
+    //   background: $mainColor;
+    //   border-radius: 4px;
+    //   padding: 10px 0 8px 0;
+    //   color: #fff;
+    //   font-size: 16px;
+    //   line-height: 24px;
+    //   margin: 21px 0 8px 0;
+    //   transition: .2s;
+    //   &:hover {
+    //     filter: opacity(90%);
+    //   }
+    // }
   }
 }
 

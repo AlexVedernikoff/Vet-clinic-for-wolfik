@@ -1,6 +1,7 @@
 import { Layout } from 'antd';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import { Button } from 'antd';
 import styles from './Header.module.scss';
 
 export const Header = (): JSX.Element => {
@@ -24,6 +25,12 @@ export const Header = (): JSX.Element => {
           {el.label}
         </Link>
       ))}
-    </Layout.Header>
+      <Link to="/sign-in">
+        <Button className={styles.signin}>sign-in</Button>
+      </Link>
+      <Link to="/sign-up">
+        <Button className={styles.registration}>registration</Button>
+      </Link>
+    </div>
   );
 };

@@ -1,5 +1,6 @@
 $colorGrey: #3f3f3f;
-$backgrountWhite: #fff;
+$colorBlue: #69ade7;
+$colorWhite: #fff;
 .wrapper {
   background-color: $backgrountWhite;
   height: 60px;
@@ -9,13 +10,25 @@ $backgrountWhite: #fff;
   @media (max-width: 1024px) {
     height: 500px;
     display: flex;
-    flex-direction: column;
-    justify-content: end;
-    padding-right: 0;
-  }
-  .link {
-    padding-right: 20px;
-    text-decoration: none;
-    color: $colorGrey;
-  }
+    justify-content: center;
+    align-items: center;
+
+    .link {
+        padding-right: 20px;
+        text-decoration: none;
+        color: $colorGrey
+    }
+    .signin, .registration  {
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-color: $colorGrey;
+        &:hover {
+            background-color: $colorBlue;
+            color: $colorWhite;
+        }
+    }
+    .signin {
+        margin-right: 32px;
+        margin-left: 80px;
+    }
+     
 }
