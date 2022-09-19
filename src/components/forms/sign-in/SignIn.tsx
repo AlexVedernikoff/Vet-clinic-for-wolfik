@@ -1,4 +1,5 @@
 import { Form, Formik, Field } from 'formik';
+import ButtonCustom from '../../button/Button';
 import { signInSchema, initialValues } from './schema';
 import { LoginUser } from '../../../types/AuthDTO';
 import { loginUser } from '../../../app/services/AuthService';
@@ -36,9 +37,11 @@ const SignIn = (): JSX.Element => (
               placeholder="Enter your password"
             />
             {errors.password && touched.password && <p>{errors.password}</p>}
-            <button type="submit" className={css.submit}>
-              Submit
-            </button>
+            <ButtonCustom
+              style={{ marginTop: '12px' }}
+              label="Submit"
+              type="submit"
+            />
           </Form>
         )}
       </Formik>
