@@ -1,6 +1,6 @@
 import { Form, Formik, Field } from 'formik';
 import { signInSchema, initialValues } from './schema';
-import css from './SignIn.module.scss';
+import css from './forms.module.scss';
 
 interface Values {
   login: string;
