@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 import { LoginUser, NewUser } from '../../types/AuthDTO';
 import { axiosInstance } from './interceptor';
 
@@ -19,9 +18,17 @@ export class AuthService {
       );
 
       return response.data;
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data);
+      } else if (error.request) {
+        console.log(error.request);
+      } else {
+        console.log('Error', error.message);
+      }
     }
+
+    return null;
   };
 
   static loginUser = async (data: LoginUser) => {
@@ -39,9 +46,17 @@ export class AuthService {
       localStorage.setItem('AUTH_TOKEN', jwtToken);
 
       return response.data;
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data);
+      } else if (error.request) {
+        console.log(error.request);
+      } else {
+        console.log('Error', error.message);
+      }
     }
+
+    return null;
   };
 
   static getCurrentClient = async () => {
@@ -51,8 +66,16 @@ export class AuthService {
       );
   
       return res.data;
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data);
+      } else if (error.request) {
+        console.log(error.request);
+      } else {
+        console.log('Error', error.message);
+      }
     }
+
+    return null;
   };
 }
