@@ -13,8 +13,9 @@ interface Values {
 }
 
 export const SignUp = (): JSX.Element => {
-  const onSubmit = (values: Values) => {
-    console.log(values);
+  const onSubmit = (values: NewUser & { agree: boolean }) => {
+    if (!values.agree) alert('You have not consented to the processing of personal data');
+    else AuthService.createNewUser(values);
   };
 
   return (
