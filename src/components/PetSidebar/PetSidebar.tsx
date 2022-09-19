@@ -7,6 +7,7 @@ import {
 import { useState } from 'react';
 import { Button } from 'antd';
 import css from './PetSidebar.module.scss';
+import ButtonCustom from '../button/Button';
 
 interface Pets {
   id: number;

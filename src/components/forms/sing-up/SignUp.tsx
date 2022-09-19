@@ -1,20 +1,16 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { Formik, Form, Field } from 'formik';
 import { Link } from 'react-router-dom';
+import ButtonCustom from '../../button/Button';
 import styles from './SignUp.module.scss';
 import { initialValues, validationsSchema } from './Validation';
-
-interface Values {
-  firstname: string
-  lastname: string
-  emailaddress: string
-  password: string
-  confirmpassword: string
-}
+import { AuthService } from '../../../app/services/AuthService';
+import { NewUser } from '../../../types/AuthDTO';
 
 export const SignUp = (): JSX.Element => {
-  const onSubmit = (values: Values) => {
-    console.log(values);
+  const onSubmit = (values: NewUser & { agree: boolean }) => {
+    if (!values.agree) alert('You have not consented to the processing of personal data');
+    else AuthService.createNewUser(values);
   };
 
   return (
@@ -25,13 +21,7 @@ export const SignUp = (): JSX.Element => {
         onSubmit={onSubmit}
         validationSchema={validationsSchema}
       >
-        {({
-          errors,
-          touched,
-          isValid,
-          handleSubmit,
-          dirty,
-        }) => (
+        {({ errors, touched, isValid, handleSubmit, dirty }) => (
           <Form onSubmit={handleSubmit}>
             <div className={styles.wrapper}>
               <div className={styles.container}>
@@ -46,7 +36,7 @@ export const SignUp = (): JSX.Element => {
                       placeholder="First name"
                     />
                     {touched.firstname && errors.firstname && (
-                    <p className={styles.validation}>{errors.firstname}</p>
+                      <p className={styles.validation}>{errors.firstname}</p>
                     )}
                   </label>
                   <label>
@@ -58,19 +48,19 @@ export const SignUp = (): JSX.Element => {
                       placeholder="Last name"
                     />
                     {touched.lastname && errors.lastname && (
-                    <p className={styles.validation}>{errors.lastname}</p>
+                      <p className={styles.validation}>{errors.lastname}</p>
                     )}
                   </label>
                   <label>
                     <div className={styles.description}>Email adress</div>
                     <Field
-                      className={errors.emailaddress && touched.emailaddress ? styles.invalid : styles.field}
+                      className={errors.email && touched.email ? styles.invalid : styles.field}
                       type="email"
-                      name="emailaddress"
+                      name="email"
                       placeholder="Email adress"
                     />
-                    {touched.emailaddress && errors.emailaddress && (
-                    <p className={styles.validation}>{errors.emailaddress}</p>
+                    {touched.email && errors.email && (
+                    <p className={styles.validation}>{errors.email}</p>
                     )}
                   </label>
                   <label>
@@ -82,36 +72,35 @@ export const SignUp = (): JSX.Element => {
                       placeholder="Password"
                     />
                     {touched.password && errors.password && (
-                    <p className={styles.validation}>{errors.password}</p>
+                      <p className={styles.validation}>{errors.password}</p>
                     )}
                   </label>
 
                   <label>
                     <div className={styles.description}>Confirm password</div>
                     <Field
-                      className={errors.confirmpassword && touched.confirmpassword ? styles.invalid : styles.field}
+                      className={errors.confirmPassword && touched.confirmPassword ? styles.invalid : styles.field}
                       type="password"
-                      name="confirmpassword"
+                      name="confirmPassword"
                       placeholder="Confirm password"
                     />
-                    {touched.confirmpassword && errors.confirmpassword && (
-                    <p className={styles.validation}>{errors.confirmpassword}</p>
+                    {touched.confirmPassword && errors.confirmPassword && (
+                    <p className={styles.validation}>{errors.confirmPassword}</p>
                     )}
                   </label>
 
                   <hr />
                   <div className={styles.data}>
-                    <input type="checkbox" defaultChecked className={styles.checkbox} />
+                    <Field type="checkbox" className={styles.checkbox} name="agree" />
                     <span className={styles.description}>I agree to the processing of my personal information</span>
                   </div>
                   <div>
-                    <button
-                      className={styles.create}
+                    <ButtonCustom
+                      label="Create"
+                      style={{ marginTop: '12px', width: '100%' }}
                       type="submit"
-                      disabled={!isValid && !dirty}
-                    >
-                      Create
-                    </button>
+                      disabled={!(isValid && dirty)}
+                    />
                     <div className={styles.signin}>
                       You have an account?&nbsp;
                       <Link to="/sign-in">Sign In.</Link>

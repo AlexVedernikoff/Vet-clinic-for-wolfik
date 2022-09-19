@@ -1,7 +1,8 @@
 import { Form, Formik, Field } from 'formik';
+import ButtonCustom from '../../button/Button';
 import { signInSchema, initialValues } from './schema';
 import { LoginUser } from '../../../types/AuthDTO';
-import { loginUser } from '../../../app/services/AuthService';
+import { AuthService } from '../../../app/services/AuthService';
 import css from './SignIn.module.scss';
 
 const SignIn = (): JSX.Element => (
@@ -9,7 +10,7 @@ const SignIn = (): JSX.Element => (
     <div className={css.container}>
       <h2>Sign In</h2>
       <Formik
-        onSubmit={(values: LoginUser) => loginUser(values)}
+        onSubmit={(values: LoginUser) => AuthService.loginUser(values)}
         initialValues={initialValues}
         validationSchema={signInSchema}
       >
@@ -36,9 +37,11 @@ const SignIn = (): JSX.Element => (
               placeholder="Enter your password"
             />
             {errors.password && touched.password && <p>{errors.password}</p>}
-            <button type="submit" className={css.submit}>
-              Submit
-            </button>
+            <ButtonCustom
+              style={{ marginTop: '12px' }}
+              label="Submit"
+              type="submit"
+            />
           </Form>
         )}
       </Formik>
