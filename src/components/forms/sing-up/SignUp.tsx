@@ -4,18 +4,13 @@ import { Link } from 'react-router-dom';
 import ButtonCustom from '../../button/Button';
 import styles from './SignUp.module.scss';
 import { initialValues, validationsSchema } from './Validation';
-
-interface Values {
-  firstname: string;
-  lastname: string;
-  emailaddress: string;
-  password: string;
-  confirmpassword: string;
-}
+import { AuthService } from '../../../app/services/AuthService';
+import { NewUser } from '../../../types/AuthDTO';
 
 export const SignUp = (): JSX.Element => {
-  const onSubmit = (values: Values) => {
-    console.log(values);
+  const onSubmit = (values: NewUser & { agree: boolean }) => {
+    if (!values.agree) alert('You have not consented to the processing of personal data');
+    else AuthService.createNewUser(values);
   };
 
   return (
@@ -59,13 +54,13 @@ export const SignUp = (): JSX.Element => {
                   <label>
                     <div className={styles.description}>Email adress</div>
                     <Field
-                      className={errors.emailaddress && touched.emailaddress ? styles.invalid : styles.field}
+                      className={errors.email && touched.email ? styles.invalid : styles.field}
                       type="email"
-                      name="emailaddress"
+                      name="email"
                       placeholder="Email adress"
                     />
-                    {touched.emailaddress && errors.emailaddress && (
-                      <p className={styles.validation}>{errors.emailaddress}</p>
+                    {touched.email && errors.email && (
+                    <p className={styles.validation}>{errors.email}</p>
                     )}
                   </label>
                   <label>
@@ -84,28 +79,20 @@ export const SignUp = (): JSX.Element => {
                   <label>
                     <div className={styles.description}>Confirm password</div>
                     <Field
-                      className={errors.confirmpassword && touched.confirmpassword ? styles.invalid : styles.field}
+                      className={errors.confirmPassword && touched.confirmPassword ? styles.invalid : styles.field}
                       type="password"
-                      name="confirmpassword"
+                      name="confirmPassword"
                       placeholder="Confirm password"
                     />
-                    {touched.confirmpassword && errors.confirmpassword && (
-                      <p className={styles.validation}>
-                        {errors.confirmpassword}
-                      </p>
+                    {touched.confirmPassword && errors.confirmPassword && (
+                    <p className={styles.validation}>{errors.confirmPassword}</p>
                     )}
                   </label>
 
                   <hr />
                   <div className={styles.data}>
-                    <input
-                      type="checkbox"
-                      defaultChecked
-                      className={styles.checkbox}
-                    />
-                    <span className={styles.description}>
-                      I agree to the processing of my personal information
-                    </span>
+                    <Field type="checkbox" className={styles.checkbox} name="agree" />
+                    <span className={styles.description}>I agree to the processing of my personal information</span>
                   </div>
                   <div>
                     <ButtonCustom
