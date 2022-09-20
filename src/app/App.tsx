@@ -8,6 +8,7 @@ import ClientPage from '../pages/client-page';
 import DoctorPage from '../pages/doctor-page';
 import ManagerPage from '../pages/manager-page';
 import MainPage from '../pages/main-page';
+import ForumPage from '../pages/forum-page';
 
 function App (): JSX.Element {
   return (
@@ -21,6 +22,7 @@ function App (): JSX.Element {
         <Route path="/clientPage" element={<ClientPage />} />
         <Route path="/managerPage" element={<ManagerPage />} />
         <Route path="/doctorPage" element={<DoctorPage />} />
+        <Route path="/forumPage" element={<ForumPage />} />
       </Routes>
       <h2>Footer</h2>
     </Router>
