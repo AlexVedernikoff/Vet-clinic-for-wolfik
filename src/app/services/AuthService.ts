@@ -64,7 +64,7 @@ export class AuthService {
       const res = await axiosInstance.get(
         'api/auth/getCurrent',
       );
-  
+
       return res.data;
     } catch (error) {
       if (error.response) {
