@@ -14,7 +14,7 @@ export const Header = ():JSX.Element => {
     { label: 'Список сосисок', path: '/список сосисок' },
     { label: 'Контакты', path: '/контакты' },
     { label: 'О нас', path: '/о нас' },
-    { label: 'Форум', path: '/форум' },
+    { label: 'Форум', path: '/forumPage' },
   ];
 
   return (
