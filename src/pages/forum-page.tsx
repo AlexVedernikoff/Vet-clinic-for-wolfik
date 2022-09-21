@@ -1,10 +1,10 @@
-import Topic from '../components/topic/Topic';
+import TopicList from '../components/topic-list/TopicList';
 
 const ForumPage = ():JSX.Element => (
   <div className="wrapper">
 
     <h3 className="title">Форум</h3>
-    <Topic />
+    <TopicList />
   </div>
 );
 
