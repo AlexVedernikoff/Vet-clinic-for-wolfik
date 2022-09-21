@@ -1,10 +1,9 @@
 import Topic from '../components/topic/Topic';
-import styles from '../styles/global.module.scss';
 
 const ForumPage = ():JSX.Element => (
-  <div className={styles.wrapper}>
+  <div className="wrapper">
 
-    <h3 className={styles.title}>Форум</h3>
+    <h3 className="title">Форум</h3>
     <Topic />
   </div>
 );

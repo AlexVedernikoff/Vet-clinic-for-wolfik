@@ -2,11 +2,12 @@ $colorLightGrey: #F5F5F5;
 $colorBlueTitle: #5496D4;
 $colorWhite: #fff;
 $colorLineGrey: #D9D9D9;
+
 .wrapper {
   background: $colorLightGrey;
   margin: 20px;
   box-shadow: 0px 5px 20px rgba(18, 38, 63, 0.05);
-  border-radius: 3px;
+  border-radius: 4px;
   padding: 10px 20px;
   display: grid;
   grid-template-columns: 535px 180px 200px 110px;
@@ -19,6 +20,7 @@ $colorLineGrey: #D9D9D9;
   .title {
     color: $colorBlueTitle;
     font-weight: 600;
+    
   }
     
     .avatar {
@@ -30,7 +32,6 @@ $colorLineGrey: #D9D9D9;
   
   .datelogo, .commentlogo, .author {
     margin-right: 12px;
-
    
   }
   .author, .date, .comment {

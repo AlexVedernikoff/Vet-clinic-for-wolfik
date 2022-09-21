@@ -1,11 +1,8 @@
 import { Link } from 'react-router-dom';
-import { format } from 'date-fns';
 import { Popover } from 'antd';
-import { EditOutlined } from '@ant-design/icons';
+import { CalendarOutlined, CommentOutlined, EditOutlined } from '@ant-design/icons';
 import { TopicList } from './typeTopic';
 import styles from './Topic.module.scss';
-import dateLogo from './dateLogo.svg';
-import commentLogo from './commentLogo.svg';
 
 const Topic = ():JSX.Element => {
   const topicList:TopicList = [
@@ -28,18 +25,29 @@ const Topic = ():JSX.Element => {
     },
   ];
 
-  const date = format(new Date('2022-09-20T11:15:07.795Z'), 'dd MMMM, HH:mm');
-  const dataTitle = format(new Date('2022-09-20T11:15:07.795Z'), 'dd.MM.yyyy HH:mm');
+  const date = Intl.DateTimeFormat('ru', {
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric' })
+    .format(new Date());
+  const datePopover = Intl.DateTimeFormat('ru', {
+    month: 'numeric',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric' })
+    .format(new Date());
 
   const popoverContent = (
     <div>
       <div>
-        <img style={{ marginRight: '12px' }} src={dateLogo} alt="date-logo" />
-        {dataTitle}
+        <CalendarOutlined style={{ marginRight: '12px' }} />
+        {datePopover}
       </div>
       <div>
         <EditOutlined style={{ marginRight: '12px' }} />
-        {dataTitle}
+        {datePopover}
       </div>
     </div>
   );
@@ -62,12 +70,12 @@ const Topic = ():JSX.Element => {
           </div>
           <Popover content={popoverContent}>
             <div className={styles.date}>
-              <img className={styles.datelogo} src={dateLogo} alt="date-logo" />
+              <CalendarOutlined className={styles.datelogo} />
               {date}
             </div>
           </Popover>
           <div className={styles.comment}>
-            <img className={styles.commentlogo} src={commentLogo} alt="comment-logo" />
+            <CommentOutlined className={styles.commentlogo} />
             {topic.comment}
           </div>
         </div>
