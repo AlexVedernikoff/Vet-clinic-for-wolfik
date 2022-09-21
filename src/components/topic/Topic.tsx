@@ -1,11 +1,19 @@
 import { Link } from 'react-router-dom';
 import { Popover } from 'antd';
 import { CalendarOutlined, CommentOutlined, EditOutlined } from '@ant-design/icons';
-import { TopicList } from './typeTopic';
 import styles from './Topic.module.scss';
 
-const Topic = ():JSX.Element => {
-  const topicList:TopicList = [
+type Topic = {
+  id: number,
+  title: string,
+  content: string,
+  avatar: string,
+  firstname: string,
+  lastname: string,
+  comment: number };
+
+const TopicList = ():JSX.Element => {
+  const topicList:Topic[] = [
     { id: 1,
       title: 'Topic #1',
       content: 'Lorem ipsum dolor sit amet',
@@ -42,11 +50,11 @@ const Topic = ():JSX.Element => {
   const popoverContent = (
     <div>
       <div>
-        <CalendarOutlined style={{ marginRight: '12px' }} />
+        <CalendarOutlined className="anticon" />
         {datePopover}
       </div>
       <div>
-        <EditOutlined style={{ marginRight: '12px' }} />
+        <EditOutlined className="anticon" />
         {datePopover}
       </div>
     </div>
@@ -70,12 +78,12 @@ const Topic = ():JSX.Element => {
           </div>
           <Popover content={popoverContent}>
             <div className={styles.date}>
-              <CalendarOutlined className={styles.datelogo} />
+              <CalendarOutlined className="anticon" />
               {date}
             </div>
           </Popover>
           <div className={styles.comment}>
-            <CommentOutlined className={styles.commentlogo} />
+            <CommentOutlined className="anticon" />
             {topic.comment}
           </div>
         </div>
@@ -85,4 +93,4 @@ const Topic = ():JSX.Element => {
   );
 };
 
-export default Topic;
+export default TopicList;
