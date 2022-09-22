@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignIn from '../components/forms/sign-in/SignIn';
 import { SignUp } from '../components/forms/sing-up/SignUp';
-import PetSidebar from '../components/PetSidebar/PetSidebar';
 import { Header } from '../components/header/Header';
 import AdminPage from '../pages/admin-page';
 import ClientPage from '../pages/client-page';

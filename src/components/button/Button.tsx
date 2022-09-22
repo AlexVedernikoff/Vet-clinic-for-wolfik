@@ -4,8 +4,8 @@ import style from './Button.module.scss';
 type ButtonType = Pick<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'>;
 
 type ButtonAllProps = DetailedHTMLProps<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
+ButtonHTMLAttributes<HTMLButtonElement>,
+HTMLButtonElement
 >;
 
 type ButtonProps = {
@@ -18,7 +18,7 @@ type ButtonProps = {
   disabled?: boolean;
   style?: React.CSSProperties;
 } & ButtonType &
-  ButtonAllProps;
+ButtonAllProps;
 
 const ButtonCustom = ({
   appearance = 'primary',
