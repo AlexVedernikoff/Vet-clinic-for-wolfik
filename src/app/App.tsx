@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignIn from '../components/forms/sign-in/SignIn';
 import { SignUp } from '../components/forms/sing-up/SignUp';
-import PetSidebar from '../components/PetSidebar/PetSidebar';
 import { Header } from '../components/header/Header';
 import AdminPage from '../pages/admin-page';
 import ClientPage from '../pages/client-page';
 import DoctorPage from '../pages/doctor-page';
 import ManagerPage from '../pages/manager-page';
 import MainPage from '../pages/main-page';
+import ForumPage from '../pages/forum-page';
 
 function App (): JSX.Element {
   return (
@@ -21,6 +21,7 @@ function App (): JSX.Element {
         <Route path="/clientPage" element={<ClientPage />} />
         <Route path="/managerPage" element={<ManagerPage />} />
         <Route path="/doctorPage" element={<DoctorPage />} />
+        <Route path="/forumPage" element={<ForumPage />} />
       </Routes>
       <h2>Footer</h2>
     </Router>
