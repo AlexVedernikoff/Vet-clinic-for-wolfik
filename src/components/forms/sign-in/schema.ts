@@ -2,10 +2,10 @@ import * as yup from 'yup';
 
 const passwordRules = /[A-z0-9]/;
 
-export const initialValues = { login: '', password: '' };
+export const initialValues = { username: 'aza@aza.com', password: 'nischmann' };
 
 export const signInSchema = yup.object().shape({
-  login: yup
+  username: yup
     .string()
     .trim()
     .required('Обязательное поле')
