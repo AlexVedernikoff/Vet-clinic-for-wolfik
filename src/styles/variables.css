@@ -15,6 +15,13 @@
   --block-bkg: #FEFEFE;
   --block-shadow: 0 0 20px rgba(18, 38, 63, 0.05);
   --block-border-radius: 3px;
+  --sign-in-color: #262626;
+  --colorRed: #F5222D;
+  --borderColor: #D9D9D9;
+  --placeholderColor: #BFBFBF;
+  --mainColor: #69ade7;
+  --focusColor: #f3faff;
+  --colorDeepGrey: #8c8c8c;
 
   /* переходы: глобальная настройка */
   --ui-transition: .25s ease-in-out;

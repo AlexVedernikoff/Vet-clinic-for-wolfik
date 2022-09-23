@@ -13,23 +13,23 @@ export const validationsSchema = yup.object().shape({
   firstname: yup
     .string()
     .trim()
-    .min(4, 'Min length First name must be 4 characters')
-    .max(20, 'Max length First name must be 20 characters')
-    .required('First name is required'),
+    .min(4, 'Имя должно состоять не менее 4 символов')
+    .max(20, 'Имя должно состоять не более 20 символов')
+    .required('Обязательное поле'),
   lastname: yup
     .string()
     .trim()
-    .min(4, 'Min length Last name must be 4 characters')
-    .max(30, 'Max length Last name must be 30 characters')
-    .required('Last name is required'),
-  email: yup.string().email('Please enter a valid email address')
-    .required('Email adress is required'),
+    .min(4, 'Фамилия должно состоять не менее 4 символов')
+    .max(30, 'Фамилия должно состоять не более 30 символов')
+    .required('Обязательное поле'),
+  email: yup.string().email('Пожалуйста, введите правильный адрес электронной почты')
+    .required('Обязательное поле'),
   password: yup
     .string()
     .trim()
-    .min(6, 'Your password needs to be at least 6 characters')
-    .max(40, 'Your password must be less than 40 characters')
-    .required('Password is required'),
-  confirmPassword: yup.string().oneOf([yup.ref('password')], 'Passwords must match')
-    .required('Confirm password is required'),
+    .min(6, 'Пароль должен содержать не менее 8 символов')
+    .max(40, 'Пароль должен содержать не более 40 символов')
+    .required('Обязательное поле'),
+  confirmPassword: yup.string().oneOf([yup.ref('password')], 'Пароли должны совпадать')
+    .required('Обязательное поле'),
 });
