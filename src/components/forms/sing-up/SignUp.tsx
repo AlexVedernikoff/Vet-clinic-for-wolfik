@@ -1,15 +1,15 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import { Formik, Form, Field } from 'formik';
 import { Link } from 'react-router-dom';
-import css from '../sign-in/forms.module.scss';
+import css from '../forms.module.scss';
 import { initialValues, validationsSchema } from './Validation';
 
 interface Values {
   firstname: string
   lastname: string
-  emailaddress: string
+  email: string
   password: string
-  confirmpassword: string
+  confirmPassword: string
+  agree: boolean
 }
 
 export const SignUp = (): JSX.Element => {
@@ -20,7 +20,7 @@ export const SignUp = (): JSX.Element => {
   return (
     <section className={css.wrapper}>
       <div className={css.container}>
-        <h2>Create new account</h2>
+        <h2>Регистрация</h2>
         <Formik
           initialValues={initialValues}
           validateOnBlur
@@ -35,7 +35,7 @@ export const SignUp = (): JSX.Element => {
             dirty,
           }) => (
             <Form onSubmit={handleSubmit}>
-              <label htmlFor="firstname">First name</label>
+              <label htmlFor="firstname">Имя</label>
               <Field
                 className={
                 errors.firstname && touched.firstname ? css.negative : css.input
@@ -43,70 +43,70 @@ export const SignUp = (): JSX.Element => {
                 type="text"
                 id="firstname"
                 name="firstname"
-                placeholder="First name"
+                placeholder="Введите имя"
               />
               {touched.firstname && errors.firstname && (
                 <p>{errors.firstname}</p>
               )}
-              <label htmlFor="lastname">Last name</label>
+              <label htmlFor="lastname">Фамилия</label>
               <Field
                 className={errors.lastname && touched.lastname ? css.negative : css.input}
                 id="lastname"
                 type="text"
                 name="lastname"
-                placeholder="Last name"
+                placeholder="Введите фамилию"
               />
               {touched.lastname && errors.lastname && (
                 <p>{errors.lastname}</p>
               )}
-              <label htmlFor="emailaddress">Email address</label>
+              <label htmlFor="email">Электронная почта</label>
               <Field
-                className={errors.emailaddress && touched.emailaddress ? css.negative : css.input}
+                className={errors.email && touched.email ? css.negative : css.input}
                 type="email"
-                id="emailaddress"
-                name="emailaddress"
-                placeholder="Email adress"
+                id="email"
+                name="email"
+                placeholder="Введите адрес"
               />
-              {touched.emailaddress && errors.emailaddress && (
-                <p>{errors.emailaddress}</p>
+              {touched.email && errors.email && (
+                <p>{errors.email}</p>
               )}
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Пароль</label>
               <Field
                 className={errors.password && touched.password ? css.negative : css.input}
                 type="password"
                 id="password"
                 name="password"
-                placeholder="Password"
+                placeholder="Введите пароль"
               />
               {touched.password && errors.password && (
                 <p>{errors.password}</p>
               )}
-              <label htmlFor="confirmpassword">Confirm password</label>
+              <label htmlFor="confirmPassword">Повторите пароль</label>
               <Field
-                className={errors.confirmpassword && touched.confirmpassword ? css.negative : css.input}
+                className={errors.confirmPassword && touched.confirmPassword ? css.negative : css.input}
                 type="password"
-                id="confirmpassword"
-                name="confirmpassword"
-                placeholder="Confirm password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Повторите пароль"
               />
-              {touched.confirmpassword && errors.confirmpassword && (
-                <p>{errors.confirmpassword}</p>
+              {touched.confirmPassword && errors.confirmPassword && (
+                <p>{errors.confirmPassword}</p>
               )}
               <hr />
               <div className={css.data}>
-                <input type="checkbox" defaultChecked className={css.checkbox} />
-                <span className={css.description}>I agree to the processing of my personal information</span>
+                <input id="agree" type="checkbox" defaultChecked={touched.agree} className={css.checkbox} />
+                <label className={css.description} htmlFor="agree">Я даю согласие на обработку персональных данных</label>
               </div>
               <button
                 className={css.submit}
                 type="submit"
                 disabled={!isValid && !dirty}
               >
-                Create
+                Подтвердить
               </button>
               <div className={css.signin}>
-                Don’t have an account?&nbsp;
-                <Link to="/signIn">Sign In.</Link>
+                Уже зарегистрированы?&nbsp;
+                <Link to="/signIn">Войдите.</Link>
               </div>
             </Form>
           )}

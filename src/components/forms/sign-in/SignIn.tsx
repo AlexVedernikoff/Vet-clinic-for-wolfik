@@ -1,6 +1,6 @@
 import { Form, Formik, Field } from 'formik';
 import { signInSchema, initialValues } from './schema';
-import css from './forms.module.scss';
+import css from '../forms.module.scss';
 
 interface Values {
   login: string;
@@ -12,7 +12,7 @@ const onSubmitForm = (values: Values): void => console.log(values);
 const SignIn = (): JSX.Element => (
   <section className={css.wrapper}>
     <div className={css.container}>
-      <h2>Sign In</h2>
+      <h2>Вход</h2>
       <Formik
         onSubmit={onSubmitForm}
         initialValues={initialValues}
@@ -20,17 +20,17 @@ const SignIn = (): JSX.Element => (
       >
         {({ errors, touched, handleSubmit }) => (
           <Form className="form" onSubmit={handleSubmit}>
-            <label htmlFor="login">Login</label>
+            <label htmlFor="login">Логин</label>
             <Field
               className={
                 errors.login && touched.login ? css.negative : css.input
               }
               id="login"
               name="login"
-              placeholder="Enter your login"
+              placeholder="Введите логин"
             />
             {errors.login && touched.login && <p>{errors.login}</p>}
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Пароль</label>
             <Field
               className={
                 errors.password && touched.password ? css.negative : css.input
@@ -38,11 +38,11 @@ const SignIn = (): JSX.Element => (
               id="password"
               name="password"
               type="password"
-              placeholder="Enter your password"
+              placeholder="Введите пароль"
             />
             {errors.password && touched.password && <p>{errors.password}</p>}
             <button type="submit" className={css.submit}>
-              Submit
+              Войти
             </button>
           </Form>
         )}

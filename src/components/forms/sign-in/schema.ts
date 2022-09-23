@@ -8,15 +8,15 @@ export const signInSchema = yup.object().shape({
   login: yup
     .string()
     .trim()
-    .required('Login is required')
-    .min(8, 'Login must have min 8 characters')
-    .max(30, 'Login must have max 30 characters'),
+    .required('Обязательное поле')
+    .min(8, 'Логин должен содержать не менее 8 символов')
+    .max(30, 'Логин должен содержать не более 30 символов'),
   password: yup
     .string()
-    .min(6, 'Password must have min 6 characters')
-    .max(40, 'Password must have max 40 characters')
-    .required('Password is required')
+    .min(6, 'Пароль должен содержать не менее 8 символов')
+    .max(40, 'Пароль должен содержать не более 40 символов')
+    .required('Обязательное поле')
     .matches(passwordRules, {
-      message: 'Password must contain A-Z(a-z)',
+      message: 'Пароль должен содержать A-Z(a-z)',
     }),
 });
