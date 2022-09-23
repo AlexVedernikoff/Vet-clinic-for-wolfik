@@ -1,117 +1,117 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import { Formik, Form, Field } from 'formik';
 import { Link } from 'react-router-dom';
-import ButtonCustom from '../../button/Button';
-import styles from './SignUp.module.scss';
+import css from '../forms.module.scss';
 import { initialValues, validationsSchema } from './Validation';
-import { AuthService } from '../../../app/services/AuthService';
-import { NewUser } from '../../../types/AuthDTO';
+
+interface Values {
+  firstname: string
+  lastname: string
+  email: string
+  password: string
+  confirmPassword: string
+  agree: boolean
+}
 
 export const SignUp = (): JSX.Element => {
-  const onSubmit = (values: NewUser & { agree: boolean }) => {
-    if (!values.agree) alert('You have not consented to the processing of personal data');
-    else AuthService.createNewUser(values);
+  const onSubmit = (values: Values) => {
+    console.log(values);
   };
 
   return (
-    <div>
-      <Formik
-        initialValues={initialValues}
-        validateOnBlur
-        onSubmit={onSubmit}
-        validationSchema={validationsSchema}
-      >
-        {({ errors, touched, isValid, handleSubmit, dirty }) => (
-          <Form onSubmit={handleSubmit}>
-            <div className={styles.wrapper}>
-              <div className={styles.container}>
-                <div className={styles.form}>
-                  <h2>Create new account</h2>
-                  <label>
-                    <div className={styles.description}>First name</div>
-                    <Field
-                      className={errors.firstname && touched.firstname ? styles.invalid : styles.field}
-                      type="text"
-                      name="firstname"
-                      placeholder="First name"
-                    />
-                    {touched.firstname && errors.firstname && (
-                      <p className={styles.validation}>{errors.firstname}</p>
-                    )}
-                  </label>
-                  <label>
-                    <div className={styles.description}>Last name</div>
-                    <Field
-                      className={errors.lastname && touched.lastname ? styles.invalid : styles.field}
-                      type="text"
-                      name="lastname"
-                      placeholder="Last name"
-                    />
-                    {touched.lastname && errors.lastname && (
-                      <p className={styles.validation}>{errors.lastname}</p>
-                    )}
-                  </label>
-                  <label>
-                    <div className={styles.description}>Email adress</div>
-                    <Field
-                      className={errors.email && touched.email ? styles.invalid : styles.field}
-                      type="email"
-                      name="email"
-                      placeholder="Email adress"
-                    />
-                    {touched.email && errors.email && (
-                    <p className={styles.validation}>{errors.email}</p>
-                    )}
-                  </label>
-                  <label>
-                    <div className={styles.description}>Password</div>
-                    <Field
-                      className={errors.password && touched.password ? styles.invalid : styles.field}
-                      type="password"
-                      name="password"
-                      placeholder="Password"
-                    />
-                    {touched.password && errors.password && (
-                      <p className={styles.validation}>{errors.password}</p>
-                    )}
-                  </label>
-
-                  <label>
-                    <div className={styles.description}>Confirm password</div>
-                    <Field
-                      className={errors.confirmPassword && touched.confirmPassword ? styles.invalid : styles.field}
-                      type="password"
-                      name="confirmPassword"
-                      placeholder="Confirm password"
-                    />
-                    {touched.confirmPassword && errors.confirmPassword && (
-                    <p className={styles.validation}>{errors.confirmPassword}</p>
-                    )}
-                  </label>
-
-                  <hr />
-                  <div className={styles.data}>
-                    <Field type="checkbox" className={styles.checkbox} name="agree" />
-                    <span className={styles.description}>I agree to the processing of my personal information</span>
-                  </div>
-                  <div>
-                    <ButtonCustom
-                      label="Create"
-                      style={{ marginTop: '12px', width: '100%' }}
-                      type="submit"
-                      disabled={!(isValid && dirty)}
-                    />
-                    <div className={styles.signin}>
-                      You have an account?&nbsp;
-                      <Link to="/sign-in">Sign In.</Link>
-                    </div>
-                  </div>
-                </div>
+    <section className={css.wrapper}>
+      <div className={css.container}>
+        <h2>Регистрация</h2>
+        <Formik
+          initialValues={initialValues}
+          validateOnBlur
+          onSubmit={onSubmit}
+          validationSchema={validationsSchema}
+        >
+          {({
+            errors,
+            touched,
+            isValid,
+            handleSubmit,
+            dirty,
+          }) => (
+            <Form onSubmit={handleSubmit}>
+              <label htmlFor="firstname">Имя</label>
+              <Field
+                className={
+                errors.firstname && touched.firstname ? css.negative : css.input
+              }
+                type="text"
+                id="firstname"
+                name="firstname"
+                placeholder="Введите имя"
+              />
+              {touched.firstname && errors.firstname && (
+                <p>{errors.firstname}</p>
+              )}
+              <label htmlFor="lastname">Фамилия</label>
+              <Field
+                className={errors.lastname && touched.lastname ? css.negative : css.input}
+                id="lastname"
+                type="text"
+                name="lastname"
+                placeholder="Введите фамилию"
+              />
+              {touched.lastname && errors.lastname && (
+                <p>{errors.lastname}</p>
+              )}
+              <label htmlFor="email">Электронная почта</label>
+              <Field
+                className={errors.email && touched.email ? css.negative : css.input}
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Введите адрес"
+              />
+              {touched.email && errors.email && (
+                <p>{errors.email}</p>
+              )}
+              <label htmlFor="password">Пароль</label>
+              <Field
+                className={errors.password && touched.password ? css.negative : css.input}
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Введите пароль"
+              />
+              {touched.password && errors.password && (
+                <p>{errors.password}</p>
+              )}
+              <label htmlFor="confirmPassword">Повторите пароль</label>
+              <Field
+                className={errors.confirmPassword && touched.confirmPassword ? css.negative : css.input}
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Повторите пароль"
+              />
+              {touched.confirmPassword && errors.confirmPassword && (
+                <p>{errors.confirmPassword}</p>
+              )}
+              <hr />
+              <div className={css.data}>
+                <input id="agree" type="checkbox" defaultChecked={touched.agree} className={css.checkbox} />
+                <label className={css.description} htmlFor="agree">Я даю согласие на обработку персональных данных</label>
               </div>
-            </div>
-          </Form>
-        )}
-      </Formik>
-    </div>
+              <button
+                className={css.submit}
+                type="submit"
+                disabled={!isValid && !dirty}
+              >
+                Подтвердить
+              </button>
+              <div className={css.signin}>
+                Уже зарегистрированы?&nbsp;
+                <Link to="/signIn">Войдите.</Link>
+              </div>
+            </Form>
+          )}
+        </Formik>
+      </div>
+    </section>
   );
 };
