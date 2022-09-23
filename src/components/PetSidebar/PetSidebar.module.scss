@@ -32,6 +32,7 @@ $pet-name: #3A4045;
       cursor: pointer;
       width: 18px;
       height: 18px;
+      padding: 0;
       background: #fff;
       border: 1.2px solid #2E75B7;
       border-radius: 50%;
@@ -40,10 +41,14 @@ $pet-name: #3A4045;
       justify-content: center;
       position: absolute;
       transform: translateX(130px);
-      span {
-        color: #000;
-        font-weight: 400;
-        font-size: 20px;
+      &::before {
+        position: absolute;
+        content: '+';
+        line-height: 16px;
+        width: 16px;
+        height: 16px;
+        top: 0;
+        left: 0;
       }
     }
   }
@@ -103,6 +108,7 @@ $pet-name: #3A4045;
         color: $pet-name;
         font-size: 12px;
         line-height: 15px;
+        max-width: 200px;
       }
       .open,
       .closed {

@@ -43,7 +43,7 @@ const petListItem = (pet: Pets, cb: (id: number) => void): JSX.Element => (
 
 const PetSidebar = (): JSX.Element => {
   const [petsData, setPetsData] = useState([
-    { id: 1, name: 'Черничка', checked: false },
+    { id: 1, name: 'Привет как дела че делаешь когда в армию?', checked: false },
     { id: 2, name: 'Клубничка', checked: false },
     { id: 3, name: 'Вредина', checked: false },
     { id: 4, name: 'Кекич', checked: false },
@@ -64,9 +64,7 @@ const PetSidebar = (): JSX.Element => {
         ) : (
           <MenuUnfoldOutlined className={css.title} onClick={() => {}} />
         )}
-        <button type="button" className={css.addpet}>
-          <span>+</span>
-        </button>
+        <button type="button" className={css.addpet} aria-label="Add pet" />
       </header>
       <ul className={css.petlist}>
         {petsData.map((pet) => petListItem(pet, updatePetsData))}
