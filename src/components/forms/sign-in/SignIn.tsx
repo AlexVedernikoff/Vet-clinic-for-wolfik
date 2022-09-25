@@ -7,8 +7,21 @@ import { LoginUser } from '../../../types/AuthDTO';
 const SignIn = ():JSX.Element => {
   const [loginUser, { error, data, isLoading, isSuccess, isError }] = useLoginUserMutation();
 
-  const onSubmitForm = (values: LoginUser) => loginUser(values);
-  console.log(data);
+  const onSubmitForm = (values: LoginUser) => {
+    if (!values) {
+      console.log('Данные отсутствуют');
+    }
+    loginUser(values);
+  };
+
+  if (isSuccess) {
+    console.log('Авторизация выполнена');
+    console.log(data);
+  }
+
+  if (error) {
+    console.log('Что-то пошло не так!');
+  }
 
   return (
     <section className={css.wrapper}>
