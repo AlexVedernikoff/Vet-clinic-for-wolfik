@@ -3,22 +3,94 @@ $colorBlue: #69ade7;
 $colorWhite: #fff;
 .wrapper {
   background-color: #fff;
-  height: 60px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  @media (max-width: 1024px) {
-    height: 500px;
+  gap: 1.66em;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1.25em;
+  padding: 0;
+  margin-right: 1.66em;
+  margin-left: 1.66em;
+  @media (max-width: 1224px) {
+    &::before {
+      display: none;
+    }
+    justify-content: flex-end;
+    gap: 1.66em;
+  }
+  .panel {
     display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: flex-end;
-    padding-right: 0;
-
+    gap: 1.66em;
+    @media (max-width: 1224px) {
+      &::before {
+        content: '';
+        position: relative;
+        top: 5px;
+        height: 1.7em;
+        border: 1px solid var(--borderColor);
+      }
+    }
+    .user {
+      display: flex;
+      &::before {
+        content: '';
+        position: relative;
+        top: 5px;
+        height: 1.7em;
+        border: 1px solid var(--borderColor);
+      }
+      .username {
+        display: flex;
+        flex-direction: column;
+        margin-left: 1.66em;
+        margin-right: 10px;
+        justify-content: space-between;
+        .role {
+          color: var(--text-color-faded);
+        }
+      }
+      .arrow {
+        margin-right: 10px;
+      }
+    }
+  }
+  .linksBlock {
+    display: flex;
+    align-items: center;
+    gap: 1.66em;
+    &::before {
+      content: '';
+      border: 1px solid var(--borderColor);
+      height: 1.7em;
+      @media (max-width: 1224px) {
+        display: none;
+      }
+    }
     .link {
-      padding-right: 20px;
       text-decoration: none;
       color: $colorGrey;
+      &:hover {
+        border-bottom: 2px solid var(--theme-color);
+      }
+    }
+  }
+  .link {
+    text-decoration: none;
+    color: $colorGrey;
+    &:hover {
+      border-bottom: 2px solid var(--theme-color);
+    }
+  }
+  .autorization {
+    @media (max-width: 1224px) {
+      &::before {
+        margin-right: 1.66em;
+        content: '';
+        border: 1px solid var(--borderColor);
+        transform: rotate(-90deg);
+        width: 1.66em;
+      }
     }
     .signin,
     .registration {
@@ -30,8 +102,24 @@ $colorWhite: #fff;
       }
     }
     .signin {
-      margin-right: 32px;
-      margin-left: 80px;
+      margin-right: 1.66em;
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  background: #fefefe;
+  box-shadow: var(--block-shadow);
+  border-radius: var(--block-border-radius);
+  .link {
+    text-decoration: none;
+    color: var(--sign-in-color);
+    padding: 10px 20px;
+    &:hover {
+      background: var(--mainColor);
+      color: var(--theme-color-highlight);
     }
   }
 }
