@@ -1,32 +1,36 @@
 import { Form, Formik, Field } from 'formik';
-import ButtonCustom from '../../button/Button';
 import { signInSchema, initialValues } from './schema';
-import { LoginUser } from '../../../types/AuthDTO';
-import { loginUser } from '../../../app/services/AuthService';
-import css from './SignIn.module.scss';
+import css from '../forms.module.scss';
+
+interface Values {
+  login: string;
+  password: string;
+}
+
+const onSubmitForm = (values: Values): void => console.log(values);
 
 const SignIn = (): JSX.Element => (
   <section className={css.wrapper}>
     <div className={css.container}>
-      <h2>Sign In</h2>
+      <h2>Вход</h2>
       <Formik
-        onSubmit={(values: LoginUser) => loginUser(values)}
+        onSubmit={onSubmitForm}
         initialValues={initialValues}
         validationSchema={signInSchema}
       >
         {({ errors, touched, handleSubmit }) => (
           <Form className="form" onSubmit={handleSubmit}>
-            <label htmlFor="login">Login</label>
+            <label htmlFor="login">Логин</label>
             <Field
               className={
-                errors.username && touched.username ? css.negative : css.input
+                errors.login && touched.login ? css.negative : css.input
               }
-              id="username"
-              name="username"
-              placeholder="Enter your login"
+              id="login"
+              name="login"
+              placeholder="Введите логин"
             />
-            {errors.username && touched.username && <p>{errors.username}</p>}
-            <label htmlFor="password">Password</label>
+            {errors.login && touched.login && <p>{errors.login}</p>}
+            <label htmlFor="password">Пароль</label>
             <Field
               className={
                 errors.password && touched.password ? css.negative : css.input
@@ -34,14 +38,12 @@ const SignIn = (): JSX.Element => (
               id="password"
               name="password"
               type="password"
-              placeholder="Enter your password"
+              placeholder="Введите пароль"
             />
             {errors.password && touched.password && <p>{errors.password}</p>}
-            <ButtonCustom
-              style={{ marginTop: '12px' }}
-              label="Submit"
-              type="submit"
-            />
+            <button type="submit" className={css.submit}>
+              Войти
+            </button>
           </Form>
         )}
       </Formik>
