@@ -1,14 +1,4 @@
 @import "~normalize.css";
-@import "../assets/fonts/helvetica-neue/helvetica-neue.css";
-@import "antd/dist/antd.css";
-@import "global.scss";
-
-body {
-  font: normal 14px/1.5 "Helvetica Neue", sans-serif;
-  display: flex;
-}
-
-#root {
-  margin: 0 auto;
-  width: 1920px;
-}
+@import "../assets/fonts/Inter.css";
+@import "./variables.css";
+@import "./global.scss";
