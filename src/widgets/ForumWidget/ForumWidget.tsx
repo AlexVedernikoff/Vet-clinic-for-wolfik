@@ -8,14 +8,14 @@ import { Animation } from '../../layout';
 
 import css from './ForumWidget.module.scss';
 
-import type { Topic } from '../../types/TopicDTO';
+/* import type { Topic } from '../../types/TopicDTO'; */
 
 export function ForumWidget(): JSX.Element {
   /** @temp dummy data */
-  const topicList: any[] = new Array(10).fill(null).map(() => (
+  const topicList: any[] = new Array(10).fill(null).map((_, i) => (
     {
       id: uuidv4(),
-      title: 'Topic #1',
+      title: `Topic #${i + 1}`,
       content: 'Lorem ipsum dolor sit amet',
       creationDate: new Date(),
       lastUpdateDate: new Date(),
@@ -53,8 +53,12 @@ export function ForumWidget(): JSX.Element {
     </>
   );
 
+  /* duration = base * (i * factor + 1)
+    base: 500ms
+    factor: 0.25 [1, 1.25, 1.5, 1.75, 2, ...]
+    duration: 500, 625, 750, 875, 1000, ... */
   const topicRender = topicList.map((topic, i) => (
-    <Animation mount="drawUp" duration={500} delay={500 * 0.1 * i} fn='ease-out' key={topic.id}>
+    <Animation mount="drawUp" duration={500 * (i * 0.25 + 1)} fn='ease-out' key={topic.id}>
       <div className={css.topic}>
         <div>
           <Link to="/onetopic">

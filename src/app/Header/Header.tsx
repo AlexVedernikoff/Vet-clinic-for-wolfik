@@ -3,10 +3,11 @@ import { MenuOutlined } from '@ant-design/icons';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Button, Separator } from '../../shared/index';
-import styles from './Header.module.scss';
 import { MatchMediaWrapper } from '../../layout';
 
-export function Header(): JSX.Element {
+import styles from './Header.module.scss';
+
+export default function Header(): JSX.Element {
   type Header = { label: string, path: string }[];
 
   const links:Header = [

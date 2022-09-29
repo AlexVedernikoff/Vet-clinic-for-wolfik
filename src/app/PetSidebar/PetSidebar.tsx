@@ -47,7 +47,7 @@ const petListItem = (pet: Pets, cb: (id: number) => void): JSX.Element => (
   </li>
 );
 
-export function PetSidebar(): JSX.Element {
+export default function PetSidebar(): JSX.Element {
   const [petsData, setPetsData] = useState([
     { id: 1, name: 'Привет как дела че делаешь когда в армию?', checked: false },
     { id: 2, name: 'Клубничка', checked: false },
