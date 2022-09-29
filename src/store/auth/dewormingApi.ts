@@ -8,34 +8,40 @@ export const dewormingApi = createApi({
   }),
   tagTypes: ['Dewormings'],
   endpoints: (build) => ({
-    getDewormingPet: build.query<ProcedureResponse, void>({
-      query: () => 'api/client/procedure/deworming?petId={petId}',
+    getDewormingPet: build.query<ProcedureResponse, { id: number }>({
+      query: (id) => `api/client/procedure/deworming?petId=${id}`,
     }),
-    addNewDeworming: build.mutation({
-      query: (data: Procedure) => ({
-        url: 'api/client/procedure/deworming?petId={petId}',
+    addNewDeworming: build.mutation<
+      ProcedureResponse,
+      { id: number; data: Procedure }
+    >({
+      query: ({ id, data }) => ({
+        url: `api/client/procedure/deworming?petId=${id}`,
         method: 'POST',
         body: { ...data },
         invalidatesTags: [{ type: 'Dewormings', id: 'LIST' }],
       }),
     }),
-    updateDeworming: build.mutation({
-      query: (data: Procedure) => ({
-        url: 'api/client/procedure/deworming/{dewormingId}',
+    updateDeworming: build.mutation<
+      ProcedureResponse,
+      { id: number; data: Procedure }
+    >({
+      query: ({ id, data }) => ({
+        url: `api/client/procedure/deworming/${id}`,
         method: 'PUT',
         body: { ...data },
         invalidatesTags: [{ type: 'Dewormings', id: 'LIST' }],
       }),
     }),
-    deleteDeworming: build.mutation({
-      query: () => ({
-        url: 'api/client/procedure/deworming/{dewormingId}',
+    deleteDeworming: build.mutation<any, number>({
+      query: (id) => ({
+        url: `api/client/procedure/deworming/${id}`,
         method: 'DELETE',
         invalidatesTags: [{ type: 'Dewormings', id: 'LIST' }],
       }),
     }),
-    getDeworming: build.query<ProcedureResponse, void>({
-      query: () => 'api/client/procedure/deworming/{dewormingId}',
+    getDeworming: build.query<ProcedureResponse, number>({
+      query: (id) => `api/client/procedure/deworming/${id}`,
     }),
   }),
 });
