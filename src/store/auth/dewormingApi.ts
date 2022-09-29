@@ -1,38 +1,41 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { ProcedureResponse } from '../../types/PetsDTO/procedure';
+import { Procedure, ProcedureResponse } from '../../types/PetsDTO/procedure';
 
 export const dewormingApi = createApi({
   reducerPath: 'dewormingApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://91.241.64.154:8080/',
   }),
+  tagTypes: ['Dewormings'],
   endpoints: (build) => ({
     getDewormingPet: build.query<ProcedureResponse, number>({
-      query: (Id: number) => `api/client/procedure/deworming?petId=${Id}`,
+      query: () => 'api/client/procedure/deworming?petId={petId}',
     }),
-    addNewDeworming: build.mutation<any, number>({
-      query: (Id: number) => ({
-        url: `api/client/procedure/deworming?petId=${Id}`,
-        method: 'post',
-        body: Id,
+    addNewDeworming: build.mutation({
+      query: (data: Procedure) => ({
+        url: 'api/client/procedure/deworming?petId={petId}',
+        method: 'POST',
+        body: { ...data },
+        invalidatesTags: [{ type: 'Dewormings', id: 'LIST' }],
       }),
     }),
-    updateDeworming: build.mutation<any, number>({
-      query: (Id: number) => ({
-        url: `api/client/procedure/deworming/${Id}`,
-        method: 'put',
-        body: Id,
+    updateDeworming: build.mutation({
+      query: (data: Procedure) => ({
+        url: 'api/client/procedure/deworming/{dewormingId}',
+        method: 'PUT',
+        body: { ...data },
+        invalidatesTags: [{ type: 'Dewormings', id: 'LIST' }],
       }),
     }),
-    deleteDeworming: build.mutation<any, number>({
-      query: (Id: number) => ({
-        url: `api/client/procedure/deworming/${Id}`,
-        method: 'delete',
-        body: Id,
+    deleteDeworming: build.mutation({
+      query: () => ({
+        url: 'api/client/procedure/deworming/{dewormingId}',
+        method: 'DELETE',
+        invalidatesTags: [{ type: 'Dewormings', id: 'LIST' }],
       }),
     }),
     getDeworming: build.query<ProcedureResponse, number>({
-      query: (Id: number) => `api/client/procedure/deworming/${Id}`,
+      query: () => 'api/client/procedure/deworming/{dewormingId}',
     }),
   }),
 });
