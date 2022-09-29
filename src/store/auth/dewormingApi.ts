@@ -8,7 +8,7 @@ export const dewormingApi = createApi({
   }),
   tagTypes: ['Dewormings'],
   endpoints: (build) => ({
-    getDewormingPet: build.query<ProcedureResponse, number>({
+    getDewormingPet: build.query<ProcedureResponse, void>({
       query: () => 'api/client/procedure/deworming?petId={petId}',
     }),
     addNewDeworming: build.mutation({
@@ -34,7 +34,7 @@ export const dewormingApi = createApi({
         invalidatesTags: [{ type: 'Dewormings', id: 'LIST' }],
       }),
     }),
-    getDeworming: build.query<ProcedureResponse, number>({
+    getDeworming: build.query<ProcedureResponse, void>({
       query: () => 'api/client/procedure/deworming/{dewormingId}',
     }),
   }),
