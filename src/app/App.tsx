@@ -12,11 +12,11 @@ import {
   SignUpPage,
 } from '../view/index';
 
-function App (): JSX.Element {
+function App(): JSX.Element {
   return (
-    <div className='layout'>
+    <div className="layout">
       <Header />
-      <div className='layout_page'>
+      <div className="layout_page">
         <PetSidebar />
         <main>
           <Routes>

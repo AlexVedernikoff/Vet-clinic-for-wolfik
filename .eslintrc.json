@@ -62,7 +62,7 @@
     "jsx-a11y/label-has-associated-control": "off",
     "object-curly-newline": "off",
     "operator-linebreak": "off",
-    "@typescript-eslint/space-before-function-paren": "off",
+    "@typescript-eslint/space-before-function-paren": "warn",
     "jsx-quotes": "off",
     "no-mixed-operators": "off",
     "no-param-reassign": "off",
