@@ -1,30 +1,37 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SignIn from '../components/forms/sign-in/SignIn';
-import { SignUp } from '../components/forms/sing-up/SignUp';
-import { Header } from '../components/header/Header';
-import AdminPage from '../pages/admin-page';
-import ClientPage from '../pages/client-page';
-import DoctorPage from '../pages/doctor-page';
-import ManagerPage from '../pages/manager-page';
-import MainPage from '../pages/main-page';
-import ForumPage from '../pages/forum-page';
+import { Routes, Route } from 'react-router-dom';
+import Header from './Header/Header';
+import PetSidebar from './PetSidebar/PetSidebar';
+import {
+  AdminPage,
+  ClientPage,
+  DoctorPage,
+  ManagerPage,
+  MainPage,
+  ForumPage,
+  SignInPage,
+  SignUpPage,
+} from '../view/index';
 
 function App (): JSX.Element {
   return (
-    <Router>
+    <div className='layout'>
       <Header />
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/adminPage" element={<AdminPage />} />
-        <Route path="/clientPage" element={<ClientPage />} />
-        <Route path="/managerPage" element={<ManagerPage />} />
-        <Route path="/doctorPage" element={<DoctorPage />} />
-        <Route path="/forumPage" element={<ForumPage />} />
-      </Routes>
-      <h2>Footer</h2>
-    </Router>
+      <div className='layout_page'>
+        <PetSidebar />
+        <main>
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/sign-up" element={<SignUpPage />} />
+            <Route path="/sign-in" element={<SignInPage />} />
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/client" element={<ClientPage />} />
+            <Route path="/manager" element={<ManagerPage />} />
+            <Route path="/doctor" element={<DoctorPage />} />
+            <Route path="/forum" element={<ForumPage />} />
+          </Routes>
+        </main>
+      </div>
+    </div>
   );
 }
 
