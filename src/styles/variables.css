@@ -1,27 +1,25 @@
 /* amagyzenér */
 :root {
   /* цвет подложки */
-  --page-bkg: hsl(0, 0%, 96%);
+  --page-bg: hsl(0, 0%, 95%);
 
   /* цвета темы */
   --theme-color: hsl(209, 60%, 58%);
   --theme-color-highlight: hsl(209, 56%, 48%); /* активные элементы, e. g. ':hover' */
+  --theme-color-faded: hsl(209, 60%, 58%, 20%); /* заголовки виджетов и т. п. */
   --normal-color: hsl(0, 0%, 85%); /* поля форм без ошибок, рамки и т. п. */
   --success-color: hsl(125, 41%, 50%); /* сообщения об успешных операциях */
   --error-color: hsl(357, 78%, 59%); /* подсветка полей форм, сообщения об ошибках */
   --warning-color: hsl(39, 81%, 56%); /* уведомления или сообщения о подтверждении действия */
 
+  /* для внутренних теней: цвета для подмешивания (осветление/затемнение) */
+  --darken25: hsla(0, 0%, 0%, 0.25);
+  --lighten25: hsla(0, 0%, 100%, 0.25);
+
   /* блоки, e. g.: формы входа/регистрации, компоненты-представления (views aka “pages”) */
-  --block-bkg: #FEFEFE;
-  --block-shadow: 0 0 20px rgba(18, 38, 63, 0.05);
+  --block-bg: #FEFEFE;
+  --block-shadow: 0 5px 20px rgba(18, 38, 63, 0.05);
   --block-border-radius: 3px;
-  --sign-in-color: #262626;
-  --colorRed: #F5222D;
-  --borderColor: #D9D9D9;
-  --placeholderColor: #BFBFBF;
-  --mainColor: #69ade7;
-  --focusColor: #f3faff;
-  --colorDeepGrey: #8c8c8c;
 
   /* переходы: глобальная настройка */
   --ui-transition: .25s ease-in-out;
