@@ -1,4 +1,11 @@
+@import './variables.css';
 
+.wrapper {
+  margin:20px;
+  height: 100vh;
+  box-shadow: 0px 10px 20px var(--block-bkg);
+  border-radius: 4px;
+}
 html {
   box-sizing: border-box;
   /* шрифт указываем в корне, чтобы использовать 'rem' во всех компонентах, основываясь на базовом размере шрифта */
@@ -92,7 +99,6 @@ h2 {
     fill: var(--text-color);
   }
 }
-<<<<<<< HEAD
 .anticon svg {
     width: 16px;
     height: 16px;
@@ -102,5 +108,3 @@ h2 {
 .active {
     border-bottom: 2px solid var(--theme-color);
 }
-=======
->>>>>>> main

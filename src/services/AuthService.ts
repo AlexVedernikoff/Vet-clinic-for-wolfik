@@ -14,7 +14,7 @@ export class AuthService {
           password,
           confirmPassword,
         },
-        { headers: { 'Content-type': 'application/json' } },
+        { headers: { 'Content-type': 'application/json' } }
       );
 
       return response.data;
@@ -40,7 +40,7 @@ export class AuthService {
           username,
           password,
         },
-        { headers: { 'Content-type': 'application/json' } },
+        { headers: { 'Content-type': 'application/json' } }
       );
       const { jwtToken, role } = response.data;
       localStorage.setItem('AUTH_TOKEN', jwtToken);
@@ -61,9 +61,7 @@ export class AuthService {
 
   static getCurrentClient = async () => {
     try {
-      const res = await axiosInstance.get(
-        'api/auth/getCurrent',
-      );
+      const res = await axiosInstance.get('api/auth/getCurrent');
 
       return res.data;
     } catch (error) {

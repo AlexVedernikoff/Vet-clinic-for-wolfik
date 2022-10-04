@@ -8,9 +8,9 @@ import { MatchMediaWrapper } from '../../layout';
 import styles from './Header.module.scss';
 
 export default function Header(): JSX.Element {
-  type Header = { label: string, path: string }[];
+  type Header = { label: string; path: string }[];
 
-  const links:Header = [
+  const links: Header = [
     { label: 'Список докторов', path: '/doctors' },
     { label: 'Список процедур', path: '/procedures' },
     { label: 'Список того', path: '/список того' },
@@ -22,21 +22,23 @@ export default function Header(): JSX.Element {
   ];
 
   const linksRender = links.map((el) => (
-    <Link to={`${el.path}`} key={uuidv4()} className={styles.link}>{el.label}</Link>
+    <Link to={`${el.path}`} key={uuidv4()} className={styles.link}>
+      {el.label}
+    </Link>
   ));
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.ws} />
-      <MatchMediaWrapper query='(max-width: 1365px)'>
+      <MatchMediaWrapper query="(max-width: 1365px)">
         <div className={styles.nav}>
           <Button>
             <MenuOutlined />
           </Button>
-          <Separator type='vertical' />
+          <Separator type="vertical" />
         </div>
         <div className={styles.nav}>
-          <Separator type='vertical' style={{ marginLeft: 0 }} />
+          <Separator type="vertical" style={{ marginLeft: 0 }} />
           {linksRender}
         </div>
       </MatchMediaWrapper>
