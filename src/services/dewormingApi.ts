@@ -12,8 +12,8 @@ export const dewormingApi = createApi({
       query: (id) => `api/client/procedure/deworming?petId=${id}`,
     }),
     addNewDeworming: build.mutation<
-      ProcedureResponse,
-      { id: number; data: Procedure }
+    ProcedureResponse,
+    { id: number; data: Procedure }
     >({
       query: ({ id, data }) => ({
         url: `api/client/procedure/deworming?petId=${id}`,
