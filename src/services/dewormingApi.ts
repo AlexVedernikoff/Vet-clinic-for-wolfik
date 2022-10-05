@@ -23,8 +23,8 @@ export const dewormingApi = createApi({
       }),
     }),
     updateDeworming: build.mutation<
-      ProcedureResponse,
-      { id: number; data: Procedure }
+    ProcedureResponse,
+    { id: number; data: Procedure }
     >({
       query: ({ id, data }) => ({
         url: `api/client/procedure/deworming/${id}`,
