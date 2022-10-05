@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
-import { MenuOutlined, DownOutlined } from '@ant-design/icons';
+import { MenuOutlined, DownOutlined, BellOutlined } from '@ant-design/icons';
 import { v4 as uuidv4 } from 'uuid';
 import { Dropdown, Layout } from 'antd';
 
 import { Button, Separator } from '../../shared/index';
 import { MatchMediaWrapper } from '../../layout';
-import Bell from '../../assets/icons/Bell.svg';
 import Avatar from '../../assets/icons/Avatar.png';
 
 import styles from './Header.module.scss';
@@ -61,7 +60,7 @@ export default function Header(): JSX.Element {
         </div>
       ) : (
         <div className={styles.controls}>
-          <img className={styles.bell} src={Bell} alt="Уведомления" />
+          <BellOutlined />
           <Separator type="vertical" style={{ marginTop: 12 }} />
           <div className={styles.user}>
             <div className={styles.username}>
