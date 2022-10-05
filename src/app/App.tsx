@@ -16,8 +16,7 @@ function App(): JSX.Element {
   return (
     <div className="layout">
       <Header />
-      <div className="layout_page">
-        <PetSidebar />
+      <div className='layout_page'>
         <main>
           <Routes>
             <Route path="/" element={<MainPage />} />
