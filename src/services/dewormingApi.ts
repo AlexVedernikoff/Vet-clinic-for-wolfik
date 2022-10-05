@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Procedure, ProcedureResponse } from '../../types/PetsDTO/procedure';
+import { Procedure, ProcedureResponse } from '../types/PetsDTO/procedure';
 
 export const dewormingApi = createApi({
   reducerPath: 'dewormingApi',
