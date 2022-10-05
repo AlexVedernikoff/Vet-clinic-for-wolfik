@@ -32,7 +32,7 @@ export default function Header(): JSX.Element {
   const Bool = false;
 
   return (
-    <Layout.Header className={styles.wrapper}>
+    <header className={styles.wrapper}>
       <div className={styles.ws} />
       <MatchMediaWrapper query="(max-width: 1365px)">
         <div className={styles.nav}>
@@ -61,7 +61,7 @@ export default function Header(): JSX.Element {
       ) : (
         <div className={styles.controls}>
           <BellOutlined />
-          <Separator type="vertical" style={{ marginTop: 12 }} />
+          <Separator type="vertical" />
           <div className={styles.user}>
             <div className={styles.username}>
               <span>ThePetOwner</span>
@@ -72,6 +72,6 @@ export default function Header(): JSX.Element {
           </div>
         </div>
       )}
-    </Layout.Header>
+    </header>
   );
 }

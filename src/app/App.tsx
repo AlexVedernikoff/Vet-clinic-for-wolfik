@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
 import Header from '../widgets/Header/Header';
-import PetSidebar from './PetSidebar/PetSidebar';
 import {
   AdminPage,
   ClientPage,
