@@ -4,7 +4,7 @@ import {
   EditFilled,
   MenuUnfoldOutlined,
   RightOutlined,
-  PlusOutlined
+  PlusOutlined,
 } from '@ant-design/icons';
 
 import { Button, Block } from '../../shared';
@@ -33,9 +33,7 @@ const petListItem = (pet: Pets, cb: (id: number) => void): JSX.Element => (
     </div>
     {pet.checked && (
       <div className={css.buttons}>
-        <Button.Filled icon={<EditFilled />}>
-          Редактировать
-        </Button.Filled>
+        <Button.Filled icon={<EditFilled />}>Редактировать</Button.Filled>
         <Button.Filled
           icon={<DeleteFilled />}
           style={{ background: 'var(--error-color)', marginLeft: 10 }}
@@ -49,16 +47,18 @@ const petListItem = (pet: Pets, cb: (id: number) => void): JSX.Element => (
 
 export function PetSidebarWidget(): JSX.Element {
   const [petsData, setPetsData] = useState([
-    { id: 1, name: 'Привет как дела че делаешь когда в армию?', checked: false },
+    {
+      id: 1,
+      name: 'Привет как дела че делаешь когда в армию?',
+      checked: false,
+    },
     { id: 2, name: 'Клубничка', checked: false },
     { id: 3, name: 'Вредина', checked: false },
     { id: 4, name: 'Кекич', checked: false },
   ]);
 
   const updatePetsData = (id: number) => {
-    const newPetsData = petsData.map((pet) => (pet.id === id
-      ? { ...pet, checked: !pet.checked }
-      : { ...pet, checked: false }));
+    const newPetsData = petsData.map((pet) => (pet.id === id ? { ...pet, checked: !pet.checked } : { ...pet, checked: false }));
     setPetsData(newPetsData);
   };
 
@@ -66,12 +66,12 @@ export function PetSidebarWidget(): JSX.Element {
     <aside className={css.petsidebar}>
       <Block constraints={{ w: 300 }} style={{ padding: 0 }}>
         <header className={css.header}>
-          <MatchMediaWrapper query='(max-width: 768px)'>
+          <MatchMediaWrapper query="(max-width: 768px)">
             <MenuUnfoldOutlined onClick={() => {}} />
             <>
               <span className={css.title}>Ваши питомцы</span>
               <Button.Outlined
-                shape='circle'
+                shape="circle"
                 icon={<PlusOutlined />}
                 style={{
                   justifySelf: 'end',
@@ -79,9 +79,9 @@ export function PetSidebarWidget(): JSX.Element {
                   height: 22,
                   background: 'var(--block-bg)',
                   borderColor: 'var(--theme-color-highlight)',
-                  color: 'var(--text-color)'
+                  color: 'var(--text-color)',
                 }}
-                aria-label='Add pet'
+                aria-label="Add pet"
               />
             </>
           </MatchMediaWrapper>

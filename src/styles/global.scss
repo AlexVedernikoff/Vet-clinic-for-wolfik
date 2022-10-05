@@ -1,4 +1,3 @@
-
 html {
   box-sizing: border-box;
   /* шрифт указываем в корне, чтобы использовать 'rem' во всех компонентах, основываясь на базовом размере шрифта */
@@ -91,4 +90,13 @@ h2 {
     height: 1.29rem;
     fill: var(--text-color);
   }
+}
+.anticon svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 12px;
+}
+
+.active {
+    border-bottom: 2px solid var(--theme-color);
 }

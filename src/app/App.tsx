@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import Header from './Header/Header';
-
+import Header from '../widgets/Header/Header';
 import {
   AdminPage,
   ClientPage,
@@ -12,9 +11,9 @@ import {
   SignUpPage,
 } from '../view/index';
 
-function App (): JSX.Element {
+function App(): JSX.Element {
   return (
-    <div className='layout'>
+    <div className="layout">
       <Header />
       <div className='layout_page'>
         <main>
