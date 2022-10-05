@@ -7,9 +7,9 @@ import {
   PlusOutlined
 } from '@ant-design/icons';
 
-import { Button, Block } from '../../shared/index';
+import { Button, Block } from '../../shared';
 
-import css from './PetSidebar.module.scss';
+import css from './PetSidebarWidget.module.scss';
 import { MatchMediaWrapper } from '../../layout';
 
 interface Pets {
@@ -47,7 +47,7 @@ const petListItem = (pet: Pets, cb: (id: number) => void): JSX.Element => (
   </li>
 );
 
-export default function PetSidebar(): JSX.Element {
+export function PetSidebarWidget(): JSX.Element {
   const [petsData, setPetsData] = useState([
     { id: 1, name: 'Привет как дела че делаешь когда в армию?', checked: false },
     { id: 2, name: 'Клубничка', checked: false },

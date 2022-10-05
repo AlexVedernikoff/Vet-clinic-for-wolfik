@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Header from './Header/Header';
-import PetSidebar from './PetSidebar/PetSidebar';
+
 import {
   AdminPage,
   ClientPage,
@@ -17,7 +17,6 @@ function App (): JSX.Element {
     <div className='layout'>
       <Header />
       <div className='layout_page'>
-        <PetSidebar />
         <main>
           <Routes>
             <Route path="/" element={<MainPage />} />

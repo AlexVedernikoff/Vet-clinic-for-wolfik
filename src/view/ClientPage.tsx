@@ -1,5 +1,7 @@
-// ...
+import { PetSidebarWidget } from '../widgets';
 
 export function ClientPage(): JSX.Element {
-  return <h1>client-page</h1>;
+  return (
+    <PetSidebarWidget />
+  );
 }
